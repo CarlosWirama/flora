@@ -1,7 +1,7 @@
 flora
 =====================
 
-A web catalog for my personal project; Using React with MobX
+A web catalog for my personal project; Using ReactJS with MobX, NodeJS with Express JS, and MongoDB with Mongoose
 
 
 ### Run
