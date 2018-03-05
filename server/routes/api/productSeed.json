@@ -1,0 +1,43 @@
+[
+  {
+    "name" : "Blue Fantasy",
+    "slug" : "blue-fantasy-rose",
+    "tagLine" : "",
+    "images" : ["images/products/krisan.jpg","images/products/tulip.jpg"],
+    "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "price" : 400000,
+    "preOrderDuration" : 3,
+    "loved" : 0,
+    "shared" : 0,
+    "displayStatus" : "available",
+    "tags" : ["rose","blue","baby","baby's","babys","breath","limonium","statice","bouquet","buket","mawar","biru","elegant","elegan","small","medium","korea","korean","fantasy","mystery","mysterious","misteri","fantasi","magic","magical","enchant","enchanting","enchanted"]
+  },
+  {
+    "name" : "Hello Red",
+    "slug" : "hello-red-rose",
+    "tagLine" : "Roses are red, violets are blue. Sugar is sweet, and so are you!",
+    "images" : ["images/products/krisan.jpg","images/products/tulip.jpg"],
+    "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "price" : 400000,
+    "preOrderDuration" : 2,
+    "loved" : 0,
+    "shared" : 0,
+    "displayStatus" : "available",
+    "tags" : ["rose","red","baby","baby's","babys","breath","bouquet","buket","mawar","merah","medium"]
+  },
+  {
+    "name" : "Elegant Blue Hydrangea",
+    "slug" : "elegant-blue-hydrangea",
+    "tagLine" : "Simple and clean is the way that you're making me feel tonight",
+    "images" : ["images/products/tulip.jpg","images/products/krisan.jpg"],
+    "caution" : "This bouquet need to stay hydrated! We suggest you to pick other type of flower if you're planning to use it in a long duration.",
+    "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "price" : 300000,
+    "salePrice" : 250000,
+    "preOrderDuration" : 3,
+    "loved" : 0,
+    "shared" : 0,
+    "displayStatus" : "not available",
+    "tags" : ["hydrangea","blue","green","medium","simple","elegant","hortensia","buket","medium"]
+  }
+]

@@ -1,0 +1,15 @@
+JC Fleur Bouquet
+
+o backend form
+
+o browse shop
+o filter: bouquet-type, occasion, etc
+o added google maps API in step4
+
+o basket : additional
+o FIXME promo-code input box
+
+
+==== gakpenting =====
+o FIXME [instruction-other]'s width in step4 dont go 100%
+o carousell ganti slider materializecss
