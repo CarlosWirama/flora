@@ -6,12 +6,18 @@ import TodoList from "./components/TodoList";
 import TodoListModel from "./models/TodoListModel";
 import TodoModel from "./models/TodoModel";
 
+// require("https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.js")
+
+import MainFrame from "./components/MainFrame";
+
 const store = new TodoListModel();
 
 render(
   <div>
     <DevTools />
-    <TodoList store={store} />
+    {/*<TodoList store={store} />*/}
+    <MainFrame store={store}/>
+
   </div>,
   document.getElementById("root")
 );
