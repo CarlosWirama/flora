@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import DevTools from "mobx-react-devtools";
+import { BrowserRouter } from "react-router-dom";
 
 import TodoList from "./components/TodoList";
 import TodoListModel from "./models/TodoListModel";
@@ -15,8 +16,10 @@ const store = new TodoListModel();
 render(
   <div>
     <DevTools />
-    {/*<TodoList store={store} />*/}
-    <MainFrame store={store}/>
+	<BrowserRouter>
+	    {/*<TodoList store={store} />*/}
+	    <MainFrame store={store}/>
+    </BrowserRouter>
 
   </div>,
   document.getElementById("root")
