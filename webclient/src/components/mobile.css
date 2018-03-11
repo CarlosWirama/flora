@@ -24,6 +24,11 @@ header nav .button-collapse {
   margin: 0px;
 }
 
+main {
+  background: linear-gradient(to right, #d9d9d9, #f2f2f2);
+  /*background-color: white;*/
+}
+
 .icon {
   width: 24px;
 }
@@ -36,6 +41,12 @@ header nav .button-collapse {
 
 svg#basket {
   fill: #c0b283;
+}
+
+.page-container {
+  /*height: 100%;*/
+  height: calc( 100% - 65px - 56px );
+  overflow: auto;
 }
 
 header nav a span {
@@ -57,9 +68,22 @@ nav .page-title {
   margin-bottom: 0px !important;
 }
 
-footer.page-footer {
-  background-color: #c0b283;
+.bottom-nav {
+  position: fixed;
+  bottom: 0px;
+  color: white;
+  margin-bottom: 0;
+  padding: 10 0;
+  width: 100%;
+  z-index: 996;
 }
+
+a {
+  color: gray;
+}
+/*footer.page-footer {
+  background-color: #c0b283;
+}*/
 
 .footer-copyright {
   font-size: .8rem;
@@ -90,6 +114,18 @@ footer.page-footer {
 }
 
 
+.col.s2point4 {
+  width: 20%;
+}
+
+.welcome-banner {
+  background-color: lightgreen;
+  height: 100%;
+  /*height: calc( 100% - 65px - 56px );*/
+  overflow: hidden;
+  margin-bottom: 20;
+}
+
 /*product-card*/
 
 .card {
@@ -97,6 +133,28 @@ footer.page-footer {
   padding: .8rem !important;
   /*background-color: #ffd;*/
 }
+
+.card h5 {
+  font-size: 1.3rem;
+  line-height: 110%;
+  margin: 0.82rem 0 0.6rem 0;
+}
+
+/*@media only screen and (max-width: 600px) {
+  .card {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+}*/
+/*
+@media only screen and (min-width: 601px) {
+  .card {
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+}*/
 
 .card img {
   width: 100%;
@@ -106,6 +164,10 @@ footer.page-footer {
   padding: 6px;
 }
 
+.card-desc {
+  clear: left;
+  font-size: 0.7rem;
+}
 /*modal, especially for datepicker to fit in product's modal*/
 /*.modal {
   min-height: 85%;

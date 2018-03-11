@@ -3,11 +3,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// import PageFooter from '../../components/pageFrame/PageFooter';
+
 const path = '/webclient/src/pages/Product';
 const Product = () => (
   <div>
     <img src={path + "/krisan.jpg"} width="100%" />
-    <div className="carousel carousel-slider center" data-indicators="true">
+    {/*<div className="carousel carousel-slider center" data-indicators="true">
       <div className="carousel-item red white-text" href="#one!">
         <img src={path + "/krisan.jpg"} />
       </div>
@@ -23,7 +25,7 @@ const Product = () => (
         <h2>Fourth Panel</h2>
         <p className="white-text">This is your fourth panel</p>
       </div>
-    </div>
+    </div>*/}
 
     <div className="container">
       <h5>Chrysanthemum</h5>
@@ -75,7 +77,7 @@ const Product = () => (
       <div className="row" style={{marginTop: 10}}>
         <div className="col s12">
           <a href="#!/product/1/pick/step1" className="btn btn-large red fullwidth waves-effect waves-light">
-            <b>PICK</b>
+            <b>BOOK</b>
           </a>
         </div>
       </div>
@@ -85,10 +87,8 @@ const Product = () => (
         <b>caution text</b>
         lorem ipsum dolor sit amet caution text lorem ipsum dolor sit amet
       </p>
-      <p>description text lorem ipsum dolor sit amet</p>
+      A bouquet of Mixed Roses, Pink Carnations, Yellow Poms, and fillers
     </div>
-
-    <pageFooter/>
   </div>
 );
 

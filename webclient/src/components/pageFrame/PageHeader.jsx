@@ -23,6 +23,7 @@ const PageHeader = () => (
       </nav>
     </div>
 
+    {/*navbar content*/}
     <ul id="side-nav" className="side-nav">
       <li><a href="#">Home</a></li>
       <li style={{paddingLeft: 16}}>

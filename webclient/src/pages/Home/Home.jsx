@@ -3,56 +3,128 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import PageFooter from '../../components/pageFrame/PageFooter';
+import BottomNav from '../../components/pageFrame/BottomNav';
 
 const path = '/webclient/src/pages/Home';
 const Home = () => (
-  <div>
+  <div className="page-container">
     {/*<!--  MAIN BANNER -->*/}
-    <div className="row">
+    <div className="welcome-banner">
+      {/*<img src={path + '/welcomeBanner.jpg'} className="responsive-img"/>*/}
+      <h3>Welcome or Promo Banner</h3><br/>
+      <h5>insta-story sized banner with buttons:</h5>
+      <button className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
+        <i className="material-icons left">favorite_border</i>
+        <b>Express</b> Booking
+      </button>
+      <a href="#category" className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
+        <i className="material-icons left">favorite_border</i>
+        <b>I know</b> what I'm looking for
+      </a>
+      <a href="#recommended-title" className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
+        <i className="material-icons left">favorite_border</i>
+        I don't. <b>Recommend</b> Me
+      </a>
+    </div>
+
+    {/*<div className="row">
       <img src={path + '/tes_banner.jpg'} className="responsive-img" />
     </div>
-
-    {/*<!-- PROMO -->*/}
     <div className="row container">
       <img src={path + "/tes_promo.jpg"} className="responsive-img" />
-    </div>
+    </div>*/}
 
     <div className="row container">
-      <div className="col s12">
-        Featured
+
+      <div id="recommended-title" className="col s12">
+        <h5>Recommended Buké</h5>
+        <hr/>
       </div>
       
-      <div className="card col s12">
-        <Link to="/product">
-          <img src={path + "/../Product/krisan.jpg"} />
-        </Link>
-        <div className="section">
-          <a className="icon btn-love"><i className="material-icons">favorite_border</i></a>
-          <a className="icon btn-share"><i className="material-icons">share</i></a>
-          <Link to="/product" className="right waves-effect waves-light btn brown"><i className="material-icons left">send</i>pick</Link>
+      <div className="col s12 m6 l4">
+        <div className="card">
+          <a>
+            <img src={path + "/../Product/krisan.jpg"} />
+          </a>
+          <div>
+            <a href="#!" className="icon btn-love"><i className="material-icons">favorite_border</i></a>
+            <a href="#!" className="icon btn-share"><i className="material-icons">share</i></a>
+            <a href="#!" className="icon"><i className="material-icons right">bookmark</i></a>
+          </div>
+          <div className="divider"></div>
+          <div className='left'>
+            <h5 className="truncate" style={{overflow:'hidden'}}>Chrysanthemum</h5>
+            <span>IDR 440.000</span>
+          </div>
+          <Link to="/product" className="right waves-effect waves-light btn brown z-depth-2" style={{marginTop:15}}>
+            <i className="material-icons left">send</i>
+            BOOK
+          </Link>
+          <h6 className="card-desc">
+            A bouquet of Mixed Roses, Pink Carnations, Yellow Poms, and fillers
+          </h6>
         </div>
-        <div className="divider"></div>
-        <h5>Chrysanthemum</h5>
-        <span>IDR 440.000</span>
       </div>
-      
-      <div className="product-card card col s12">
-        <a href="#!">
-          <img src={path + "/../Product/tulip.jpg"} />
-        </a>
-        <div className="section">
-          <a href="#!" className=""><i className="material-icons">favorite_border</i></a>
-          <a href="#!" className=""><i className="material-icons">favorite_border</i></a>
+
+      <div className="col s12 m6 l4">
+        <div className="card">
+          <a>
+            <img src={path + "/../Product/tulip.jpg"} />
+          </a>
+          <div>
+            <a href="#!" className="icon btn-love"><i className="material-icons">favorite_border</i></a>
+            <a href="#!" className="icon btn-share"><i className="material-icons">share</i></a>
+            <a href="#!" className="icon"><i className="material-icons right">bookmark</i></a>
+          </div>
+          <div className="divider"></div>
+          
+            <h5 className='left'>I Love You This Much</h5>
+            <h5 className='right'>IDR 440.000</h5>
+          
+
+          <h6 className="card-desc">
+            A bouquet of Mixed Roses, Pink Carnations, Yellow Poms, and fillers
+          </h6>
+
+          <Link to="/product" className=" waves-effect waves-light btn brown z-depth-3" style={{marginTop:5, width:'100%', padding: '0 80'}}>
+            <i className="material-icons left">send</i>
+            BOOK
+          </Link>
         </div>
-        <div className="divider"></div>
-        <h5>I Love You This Much</h5>
-        <span>IDR 440.000</span>
       </div>
       
-      <div className="col s12 product-card">
+      <div className="col s12 m6 l4">
+        <div className="card">
+          <a>
+            <img src={path + "/../Product/tulip.jpg"} />
+          </a>
+          <div>
+            <a href="#!" className="icon btn-love"><i className="material-icons">favorite_border</i></a>
+            <a href="#!" className="icon btn-share"><i className="material-icons">share</i></a>
+            <a href="#!" className="icon"><i className="material-icons right">bookmark</i></a>
+          </div>
+          <div className="divider"></div>
+          
+            <h5 className='left'>I Love You This Much</h5>
+            <h5 className='right'>IDR 440.000</h5>
+          
+
+          <h6 className="card-desc">
+            A bouquet of Mixed Roses, Pink Carnations, Yellow Poms, and fillers
+          </h6>
+
+          <Link to="/product" className=" waves-effect waves-light btn brown z-depth-3" style={{marginTop:5, width:'100%', padding: '0 80'}}>
+            <i className="material-icons left">send</i>
+            BOOK
+          </Link>
+        </div>
+      </div>
+      
+      <a href="#!" className="right">show more...</a>
+
+      {/*<div className="col s12" style={{marginTop:30}}>
         <img src={path + "/tes_promo.jpg"} className="responsive-img" />
-      </div>
+      </div>*/}
     </div>
 
     {/*<!-- Popped-up filter -->*/}
@@ -127,7 +199,7 @@ const Home = () => (
      -->*/}
 
     {/*<!-- Shortcuts -->*/}
-    <div className="row container center" style={{fontSize: ".8rem"}}>
+    <div id="category" className="row container center" style={{fontSize: ".8rem"}}>
       <a className="col s4 offset-s1 shortcuts card"><i className="small material-icons">query_builder</i><br/>24 hour delivery</a>
       <a className="col s4 offset-s2 shortcuts card"><i className="small material-icons">attach_money</i><br/>Set prefered budget</a>
       <a className="col s4 offset-s1 shortcuts card"><i className="small material-icons">cake</i><br/>Occasion</a>
@@ -158,7 +230,7 @@ const Home = () => (
       - namaorang
     </div>-->*/}
 
-    <PageFooter/>
+    <BottomNav/>
   </div>
 );
 

@@ -16,7 +16,7 @@ class MainFrame extends React.Component {
 
     // fetch('http://localhost:3001/s').then(res=>res.json()).then(res=>console.log(res));
     return (
-      <BrowserRouter>
+      <BrowserRouter>{/* onUpdate={() => window.scrollTo(0, 0)}>*/}
         <div>
           {/*<form onSubmit={this.handleFormSubmit}>
             New Todo:
@@ -39,7 +39,7 @@ class MainFrame extends React.Component {
 
           <PageHeader/>
 
-          <main>
+          <main style={{overflow:'hidden'}}>
             {/*
             <Route path="/about" component={About} />
             <Route path="/topics" component={Topics} />*/}
@@ -50,11 +50,11 @@ class MainFrame extends React.Component {
           </main>
 
           {/*<!-- Fixed bottom btn -->*/}
-          <div id="btn-chat" className="fixed-action-btn">
+          {/*<div id="btn-chat" className="fixed-action-btn">
             <a href="#!/chat" className="btn-floating btn-large brown">
               <i className="large material-icons">chat</i>
             </a>
-          </div>
+          </div>*/}
 
         </div>
       </BrowserRouter>
