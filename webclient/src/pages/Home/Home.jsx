@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import BottomNav from '../../components/pageFrame/BottomNav';
+import ProductCard from '../../components/ProductCard';
 
 const path = '/webclient/src/pages/Home';
 const Home = () => (
@@ -11,20 +12,24 @@ const Home = () => (
     {/*<!--  MAIN BANNER -->*/}
     <div className="welcome-banner">
       {/*<img src={path + '/welcomeBanner.jpg'} className="responsive-img"/>*/}
-      <h3>Welcome or Promo Banner</h3><br/>
-      <h5>insta-story sized banner with buttons:</h5>
-      <button className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
-        <i className="material-icons left">favorite_border</i>
-        <b>Express</b> Booking
-      </button>
-      <a href="#category" className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
-        <i className="material-icons left">favorite_border</i>
-        <b>I know</b> what I'm looking for
-      </a>
-      <a href="#recommended-title" className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
-        <i className="material-icons left">favorite_border</i>
-        I don't. <b>Recommend</b> Me
-      </a>
+        <div id="sementara" className="container">
+        <h3>Welcome or Promo Banner</h3><br/>
+        <h5>insta-story sized banner with buttons:</h5>
+        <button className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
+          <i className="material-icons left">favorite_border</i>
+          <b>Express</b> Booking
+        </button>
+        <a href="#category" className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
+          <i className="material-icons left">favorite_border</i>
+          <b>I know</b> what I'm looking for
+        </a>
+        <a href="#recommended-title" className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
+          <i className="material-icons left">favorite_border</i>
+          I don't. <b>Recommend</b> Me
+        </a>
+
+        <h6>No discount? Yup! We don't mark up our prices to fool our customers with fake discount. They're just too... precious!</h6>
+      </div>
     </div>
 
     {/*<div className="row">
@@ -42,55 +47,11 @@ const Home = () => (
       </div>
       
       <div className="col s12 m6 l4">
-        <div className="card">
-          <a>
-            <img src={path + "/../Product/krisan.jpg"} />
-          </a>
-          <div>
-            <a href="#!" className="icon btn-love"><i className="material-icons">favorite_border</i></a>
-            <a href="#!" className="icon btn-share"><i className="material-icons">share</i></a>
-            <a href="#!" className="icon"><i className="material-icons right">bookmark</i></a>
-          </div>
-          <div className="divider"></div>
-          <div className='left'>
-            <h5 className="truncate" style={{overflow:'hidden'}}>Chrysanthemum</h5>
-            <span>IDR 440.000</span>
-          </div>
-          <Link to="/product" className="right waves-effect waves-light btn brown z-depth-2" style={{marginTop:15}}>
-            <i className="material-icons left">send</i>
-            BOOK
-          </Link>
-          <h6 className="card-desc">
-            A bouquet of Mixed Roses, Pink Carnations, Yellow Poms, and fillers
-          </h6>
-        </div>
+        <ProductCard name='Chrysanthemum' img={path + '/../Product/krisan.jpg'} price='440.000' isButtonRight={true}/>
       </div>
 
       <div className="col s12 m6 l4">
-        <div className="card">
-          <a>
-            <img src={path + "/../Product/tulip.jpg"} />
-          </a>
-          <div>
-            <a href="#!" className="icon btn-love"><i className="material-icons">favorite_border</i></a>
-            <a href="#!" className="icon btn-share"><i className="material-icons">share</i></a>
-            <a href="#!" className="icon"><i className="material-icons right">bookmark</i></a>
-          </div>
-          <div className="divider"></div>
-          
-            <h5 className='left'>I Love You This Much</h5>
-            <h5 className='right'>IDR 440.000</h5>
-          
-
-          <h6 className="card-desc">
-            A bouquet of Mixed Roses, Pink Carnations, Yellow Poms, and fillers
-          </h6>
-
-          <Link to="/product" className=" waves-effect waves-light btn brown z-depth-3" style={{marginTop:5, width:'100%', padding: '0 80'}}>
-            <i className="material-icons left">send</i>
-            BOOK
-          </Link>
-        </div>
+        <ProductCard name='TwoLips' img={path + '/../Product/tulip.jpg'} price='550.000'/>
       </div>
       
       <div className="col s12 m6 l4">
@@ -104,16 +65,9 @@ const Home = () => (
             <a href="#!" className="icon"><i className="material-icons right">bookmark</i></a>
           </div>
           <div className="divider"></div>
-          
-            <h5 className='left'>I Love You This Much</h5>
-            <h5 className='right'>IDR 440.000</h5>
-          
-
-          <h6 className="card-desc">
-            A bouquet of Mixed Roses, Pink Carnations, Yellow Poms, and fillers
-          </h6>
-
-          <Link to="/product" className=" waves-effect waves-light btn brown z-depth-3" style={{marginTop:5, width:'100%', padding: '0 80'}}>
+          <h5 className='left'>I Love You This Much</h5>
+          <h5 className='right'>IDR 440.000</h5>
+          <Link to="/product" className=" waves-effect waves-light btn brown" style={{marginTop:5, width:'100%', padding: '0 80'}}>
             <i className="material-icons left">send</i>
             BOOK
           </Link>
@@ -122,9 +76,6 @@ const Home = () => (
       
       <a href="#!" className="right">show more...</a>
 
-      {/*<div className="col s12" style={{marginTop:30}}>
-        <img src={path + "/tes_promo.jpg"} className="responsive-img" />
-      </div>*/}
     </div>
 
     {/*<!-- Popped-up filter -->*/}
@@ -200,10 +151,12 @@ const Home = () => (
 
     {/*<!-- Shortcuts -->*/}
     <div id="category" className="row container center" style={{fontSize: ".8rem"}}>
-      <a className="col s4 offset-s1 shortcuts card"><i className="small material-icons">query_builder</i><br/>24 hour delivery</a>
-      <a className="col s4 offset-s2 shortcuts card"><i className="small material-icons">attach_money</i><br/>Set prefered budget</a>
-      <a className="col s4 offset-s1 shortcuts card"><i className="small material-icons">cake</i><br/>Occasion</a>
-      <a className="col s4 offset-s2 shortcuts card" href="#!/shop"><i className="small material-icons">search</i><br/>All product</a>
+      <a className="col s6 shortcuts card">
+        <i className="small material-icons">query_builder</i><br/>24 hour delivery
+      </a>
+      <a className="col s6 shortcuts card"><i className="small material-icons">attach_money</i><br/>Set prefered budget</a>
+      <a className="col s6 shortcuts card"><i className="small material-icons">cake</i><br/>Occasion</a>
+      <a className="col s6 shortcuts card" href="#!/shop"><i className="small material-icons">search</i><br/>All product</a>
     </div>
     {/*<!-- 
     <div className="row container center" style="font-size: .8rem">
@@ -230,7 +183,9 @@ const Home = () => (
       - namaorang
     </div>-->*/}
 
-    <BottomNav/>
+    <div className="hide-on-large-only">
+      <BottomNav />
+    </div>
   </div>
 );
 

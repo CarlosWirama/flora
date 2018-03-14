@@ -72,10 +72,10 @@ app.use(function(req, res, next) {
 app.get('*', function(req, res){
 	// res.sendFile(__dirname,'/../index.html')
 	// res.sendFile(path.join(__dirname+'/../client/src/index.js'))
-	res.send(JSON.stringify('HELLO WORLD!!!!!'))
+	// res.send(JSON.stringify('HELLO WORLD!!!!!'))
 	// res.sendFile(path.join(__dirname+'/../index.html'))
 	//// OLD WORKING ANGULAR
-	// res.sendFile(__dirname+'/public/views/index.html')
+	res.sendFile(__dirname+'/public/views/index.html')
 })
 
 

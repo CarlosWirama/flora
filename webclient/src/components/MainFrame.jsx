@@ -16,7 +16,7 @@ class MainFrame extends React.Component {
 
     // fetch('http://localhost:3001/s').then(res=>res.json()).then(res=>console.log(res));
     return (
-      <BrowserRouter>{/* onUpdate={() => window.scrollTo(0, 0)}>*/}
+      <BrowserRouter>
         <div>
           {/*<form onSubmit={this.handleFormSubmit}>
             New Todo:
