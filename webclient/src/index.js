@@ -9,6 +9,29 @@ import TodoModel from "./models/TodoModel";
 
 import MainFrame from "./components/MainFrame";
 
+const firebase = require("firebase");
+// Required for side-effects
+require("firebase/firestore");
+
+firebase.initializeApp({
+  apiKey: "AIzaSyCd0qjFCXIUvPYgOQaTK_zMGIbXED_qIm0",
+  authDomain: "flora-247.firebaseapp.com",
+  databaseURL: "https://flora-247.firebaseio.com",
+  projectId: "flora-247",
+  storageBucket: "flora-247.appspot.com",
+  messagingSenderId: "159426383092"
+});
+
+// Initialize Cloud Firestore through Firebase
+global.db = firebase.firestore();
+
+db.collection("users").get().then( querySnapshot => {
+    querySnapshot.forEach( doc => {
+        console.log(`${doc.id} => ${doc.data()}`);
+        console.log(doc.data());
+    });
+});
+
 const store = new TodoListModel();
 
 render(

@@ -28,7 +28,10 @@ const Home = () => (
           I don't. <b>Recommend</b> Me
         </a>
 
-        <h6>No discount? Yup! We don't mark up our prices to fool our customers with fake discount. They're just too... precious!</h6>
+        <h6>
+          No discount? Yup! We don't mark up our prices to fool our
+          customers with fake discount. They're just too... precious!
+        </h6>
       </div>
     </div>
 
@@ -42,7 +45,7 @@ const Home = () => (
     <div className="row container">
 
       <div id="recommended-title" className="col s12">
-        <h5>Recommended Buké</h5>
+        <h5>March Recommended Buké</h5>
         <hr/>
       </div>
       
@@ -51,7 +54,7 @@ const Home = () => (
       </div>
 
       <div className="col s12 m6 l4">
-        <ProductCard name='TwoLips' img={path + '/../Product/tulip.jpg'} price='550.000'/>
+        <ProductCard name='Fantasia' img={path + '/../Product/tulip.jpg'} price='550.000'/>
       </div>
       
       <div className="col s12 m6 l4">
