@@ -4,12 +4,13 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'eval',
   entry: [
+    'babel-polyfill',
     './webclient/src/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
@@ -23,5 +24,8 @@ module.exports = {
       use: ['babel-loader'],
       include: path.join(__dirname, 'webclient/src')
     }]
+  },
+  devServer: {
+    historyApiFallback: true,
   }
 };

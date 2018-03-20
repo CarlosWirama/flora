@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { CSSTransitionGroup } from 'react-transition-group';
 
 import BottomNav from '../../components/pageFrame/BottomNav';
 import ProductCard from '../../components/ProductCard';
@@ -27,6 +28,14 @@ const Home = () => (
           <i className="material-icons left">favorite_border</i>
           I don't. <b>Recommend</b> Me
         </a>
+
+
+      {/*SEMENTARA*/}
+        <Link to="/product/add" className="btn red waves-effect waves-light" style={{padding: "0 1.8rem"}}>
+          <i className="material-icons left">favorite_border</i>
+          Add <b>Product</b>
+        </Link>
+
 
         <h6>
           No discount? Yup! We don't mark up our prices to fool our
