@@ -65,28 +65,8 @@ const Home = () => (
       <div className="col s12 m6 l4">
         <ProductCard name='Fantasia' img={path + '/../Product/tulip.jpg'} price='550.000'/>
       </div>
-      
-      <div className="col s12 m6 l4">
-        <div className="card">
-          <a>
-            <img src={path + "/../Product/tulip.jpg"} />
-          </a>
-          <div>
-            <a href="#!" className="icon btn-love"><i className="material-icons">favorite_border</i></a>
-            <a href="#!" className="icon btn-share"><i className="material-icons">share</i></a>
-            <a href="#!" className="icon"><i className="material-icons right">bookmark</i></a>
-          </div>
-          <div className="divider"></div>
-          <h5 className='left'>I Love You This Much</h5>
-          <h5 className='right'>IDR 440.000</h5>
-          <Link to="/product" className=" waves-effect waves-light btn brown" style={{marginTop:5, width:'100%', padding: '0 80'}}>
-            <i className="material-icons left">send</i>
-            BOOK
-          </Link>
-        </div>
-      </div>
-      
-      <a href="#!" className="right">show more...</a>
+
+      <a href="travorama://" className="right">show more...</a>
 
     </div>
 
