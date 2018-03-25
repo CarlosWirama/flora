@@ -436,3 +436,16 @@ main {
 .noUi-vertical .noUi-active .noUi-tooltip span {
   opacity: 1;
 }
+
+/* COMMA-SEPARATED INPUT WORK-AROUND*/
+div[comma-value]{
+  position:relative;
+}
+div[comma-value]:before{
+  content: attr(comma-value);
+  position:absolute;
+  left:0; top: 11;
+}
+div[comma-value] input{
+  color: transparent;
+}

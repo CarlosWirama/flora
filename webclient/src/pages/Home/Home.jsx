@@ -12,7 +12,7 @@ const Home = () => (
   <div className="page-container">
     {/*<!--  MAIN BANNER -->*/}
     <div className="welcome-banner">
-      {/*<img src={path + '/welcomeBanner.jpg'} className="responsive-img"/>*/}
+      {/*<img src={path + '/welcomeBanner.jpg'} className="responsive-img"/> */}
         <div id="sementara" className="container">
         <h3>Welcome or Promo Banner</h3><br/>
         <h5>insta-story sized banner with buttons:</h5>
@@ -54,19 +54,19 @@ const Home = () => (
     <div className="row container">
 
       <div id="recommended-title" className="col s12">
-        <h5>March Recommended Buké</h5>
+        <h5>Recommended Buké</h5>
         <hr/>
       </div>
       
       <div className="col s12 m6 l4">
-        <ProductCard name='Chrysanthemum' img={path + '/../Product/krisan.jpg'} price='440.000' isButtonRight={true}/>
+        <ProductCard name='Chrysanthemum' img={path + '/../Product/krisan.jpg'} price='440.000'/>
       </div>
 
       <div className="col s12 m6 l4">
         <ProductCard name='Fantasia' img={path + '/../Product/tulip.jpg'} price='550.000'/>
       </div>
 
-      <a href="travorama://" className="right">show more...</a>
+      {/*<a href="#!" className="right">show more...</a>*/}
 
     </div>
 
@@ -142,32 +142,17 @@ const Home = () => (
      -->*/}
 
     {/*<!-- Shortcuts -->*/}
-    <div id="category" className="row container center" style={{fontSize: ".8rem"}}>
+    {/*<div id="category" className="row container center" style={{fontSize: ".8rem"}}>
       <a className="col s6 shortcuts card">
         <i className="small material-icons">query_builder</i><br/>24 hour delivery
       </a>
       <a className="col s6 shortcuts card"><i className="small material-icons">attach_money</i><br/>Set prefered budget</a>
       <a className="col s6 shortcuts card"><i className="small material-icons">cake</i><br/>Occasion</a>
       <a className="col s6 shortcuts card" href="#!/shop"><i className="small material-icons">search</i><br/>All product</a>
-    </div>
-    {/*<!-- 
-    <div className="row container center" style="font-size: .8rem">
-      <a className="col s6 shortcuts card" href="#!"><i className="small material-icons">query_builder</i><br>< 24 hour delivery</a>
-      <a className="col s6 shortcuts card" href="#!"><i className="small material-icons">attach_money</i><br>Set prefered budget</a>
-      <a className="col s6 shortcuts card" href="#!"><i className="small material-icons">cake</i><br>Occasion</a>
-      <a className="col s6 shortcuts card" href="#!"><i className="small material-icons">search</i><br>All product</a>
-    </div>
-     -->
+    </div>*/}
+    
 
-    <!-- Continuous Catalog -->
-    <!-- 
-    <div className="center">
-      <p>Loading more ...</p>
-    </div> -->
-    <!-- <div className="row container">
-      <a className="col s12 center btn waves-effect waves-light">Load More Products...</a>
-    </div> -->
-
+    {/*
     <!-- Testimoni -->
     <!-- 
     <div className="section container center">
@@ -175,9 +160,10 @@ const Home = () => (
       - namaorang
     </div>-->*/}
 
-    <div className="hide-on-large-only">
+    {/*<div className="hide-on-large-only">
       <BottomNav />
-    </div>
+    </div>*/}
+
   </div>
 );
 

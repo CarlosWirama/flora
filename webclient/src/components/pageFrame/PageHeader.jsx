@@ -10,7 +10,8 @@ const PageHeader = () => (
       <nav className="nav-extended">
         <div className="nav-wrapper container">
                       {/*<!-- removed class: show-on-large -->*/}
-          <a href="#" data-activates="side-nav" className="button-collapse"><i className="material-icons">arrow_left</i></a>
+          {/*<a href="#" data-activates="side-nav" className="button-collapse">*/}
+          <a href='#!' className='icon left'><i className="material-icons">arrow_backs</i></a>
           <Link to="/"><h5 className="brand-logo">JC Fleur Bouquet</h5></Link>
           <a href="#!/basket" className="right" style={{position:"relative"}}>
             {/*<img id="basket" className="icon" src="images/handbag.svg" />*/}

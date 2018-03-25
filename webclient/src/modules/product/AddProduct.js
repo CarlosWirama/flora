@@ -29,6 +29,8 @@ class AddProduct extends React.Component {
   @action
   _onSubmit = e => {
     e.preventDefault();
+    //// manually get tags' value
+    this.form.tags = this.refs.tags.value.split(', ');
     addProduct(this.form).then( r => {
       alert('successfully added product '+this.form+' with id '+r)
       this.form = this.createEmptyForm();
@@ -42,9 +44,10 @@ class AddProduct extends React.Component {
     this.form[name] = newValue;
   }
 
+
   render () {
     return (
-      <form onSubmit={this._onSubmit} >
+      <form onSubmit={this._onSubmit}>
         <div className="row container">
           <h5 className='col s12'>Add Product</h5>
 
@@ -55,12 +58,19 @@ class AddProduct extends React.Component {
           </div>
           
           <div className="col s12">
-            <InputField fieldName='price' arrayOfFields={this.form} required/>
+            <InputField fieldName='price' type='number' arrayOfFields={this.form} required/>
           </div>
 
           <div className="col s12">
             <InputField fieldName='instagramUrl' label='Instagram Post URL' arrayOfFields={this.form} />
           </div>
+
+
+          <div className='col s12 input-field'>
+            <label>Tags</label>
+            <div className='chips chips-autocomplete' />
+          </div>
+          <input id='chips_input' name='tags' type='hidden' onChange={this._inputChange} ref='tags' />
 
           <div className="input-field col s12">
             <label htmlFor="description">Description (optional)</label>
@@ -83,14 +93,16 @@ class AddProduct extends React.Component {
 @observer
 class InputField extends React.Component {
   render () {
-    let { fieldName, arrayOfFields, required, label } = this.props;
+    let { fieldName, arrayOfFields, required, label, type, formatter } = this.props;
+    let value = arrayOfFields[fieldName];
     return(
-      <div className='input-field'>
+      <div className={'input-field '.concat(this.props.className)}>
         <label htmlFor={fieldName} >
           {label || capitalizeFirstLetter(fieldName)}
         </label>
-        <input id={fieldName} name={fieldName} type='text' className='filled-in' required={required}
-          value={arrayOfFields[fieldName]} onChange={this._inputChange} />
+        <input id={fieldName} name={fieldName} type={type||'text'}
+          className='filled-in' required={required} value={value}
+          onChange={this._inputChange} ref='input'/>
       </div>
     );
   }
@@ -99,8 +111,23 @@ class InputField extends React.Component {
   _inputChange = e => {
     const {name, type, checked, value } = e.target;
     const newValue = type === 'checkbox' ? checked : value;
+    if (type === 'number') this._commify(value);
     this.props.arrayOfFields[name] = newValue;
   }
+
+  _commify = value => {
+    var chars = value.split("").reverse()
+    var withCommas = []
+    for(var i = 1; i <= chars.length; i++ ) {
+      withCommas.push(chars[i-1])
+      if(i%3==0 && i != chars.length ){  
+        withCommas.push(".")
+      }
+    }
+    var val = withCommas.reverse().join("")
+    this.refs.input.parentNode.setAttribute("comma-value",val)
+  }
+
 }
 
 export default AddProduct;
