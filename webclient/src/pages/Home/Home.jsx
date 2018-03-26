@@ -7,7 +7,14 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import BottomNav from '../../components/pageFrame/BottomNav';
 import ProductCard from '../../components/ProductCard';
 
+
 const path = '/webclient/src/pages/Home';
+const products = [
+  { name:'Chrysanthemum', img: path + '/../Product/krisan.jpg', price: '440.000', url:'/product/1', description:'Thrilling and exciting at the same time.' },
+  { name:'Fantasia', img: path + '/../Product/tulip.jpg', price: '550.000', url:'/product/1', description:'To set eyes on this charming bouquet is like being stranded in a mysterious islands belongs to mermaids and mystical creatures.' },
+  { name:'Just The Way You Are', img: path + '/../Product/krisan.jpg', price: '650.000', url:'/product/1', description:'The captivating pink roses bouquet is suitable for any special occasion.' },
+];
+
 const Home = () => (
   <div className="page-container">
     {/*<!--  MAIN BANNER -->*/}
@@ -38,7 +45,7 @@ const Home = () => (
 
 
         <h6>
-          No discount? Yup! We don't mark up our prices to fool our
+          No discount? Yup! We don't mark up our prices nor fool our
           customers with fake discount. They're just too... precious!
         </h6>
       </div>
@@ -58,13 +65,12 @@ const Home = () => (
         <hr/>
       </div>
       
-      <div className="col s12 m6 l4">
-        <ProductCard name='Chrysanthemum' img={path + '/../Product/krisan.jpg'} price='440.000'/>
-      </div>
-
-      <div className="col s12 m6 l4">
-        <ProductCard name='Fantasia' img={path + '/../Product/tulip.jpg'} price='550.000'/>
-      </div>
+      { products.map( (product, i) =>
+        <div className="col s12 m6 l4" key={i}>
+          <ProductCard name={product.name} img={product.img} url={product.url}
+            price={product.price} description={product.description} />
+        </div>
+      ) }
 
       {/*<a href="#!" className="right">show more...</a>*/}
 

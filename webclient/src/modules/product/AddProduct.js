@@ -44,12 +44,15 @@ class AddProduct extends React.Component {
     this.form[name] = newValue;
   }
 
-
   render () {
     return (
-      <form onSubmit={this._onSubmit}>
+      <form action='someDummyActionToAdjustKeyboardButtonProperly' onSubmit={this._onSubmit}>
         <div className="row container">
           <h5 className='col s12'>Add Product</h5>
+
+          <div className="col s12">
+            <InputField fieldName='instagramUrl' label='Instagram Post URL' arrayOfFields={this.form} />
+          </div>
 
           <div className="input-field col s12">
             <label htmlFor="name">Name</label>
@@ -61,14 +64,9 @@ class AddProduct extends React.Component {
             <InputField fieldName='price' type='number' arrayOfFields={this.form} required/>
           </div>
 
-          <div className="col s12">
-            <InputField fieldName='instagramUrl' label='Instagram Post URL' arrayOfFields={this.form} />
-          </div>
-
-
           <div className='col s12 input-field'>
             <label>Tags</label>
-            <div className='chips chips-autocomplete' />
+            <div className='chips chips-autocomplete'/>
           </div>
           <input id='chips_input' name='tags' type='hidden' onChange={this._inputChange} ref='tags' />
 
