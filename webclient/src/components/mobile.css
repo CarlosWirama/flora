@@ -31,12 +31,6 @@ header nav .button-collapse {
   margin: 0px;
 }
 
-main {
-  /*background-color: white;*/
-  background: linear-gradient(to right, #d9d9d9, #f2f2f2);
-  flex: 1 0 auto;
-}
-
 .icon {
   width: 24px;
 }
@@ -54,8 +48,8 @@ svg#basket {
 .page-container {
   /*height: 100%;*/
   /*height: calc( 100% - 53px - 56px );*/
-  height: calc( 100% - 56px );
-  overflow: auto;
+  /*height: calc( 100% - 56px );*/
+  /*overflow: auto;*/
 }
 
 header nav a span {
@@ -268,14 +262,17 @@ a {
 }
 
 
-/*fixed footer*/
-
+/* fixed footer*/
 body {
-  display: flex;
+  /*display: flex;
   min-height: 100vh;
-  flex-direction: column;
+  flex-direction: column;*/
+  background: linear-gradient(to right, #d9d9d9, #f2f2f2);
 }
-
+/*main {
+  flex: 1 0 auto;
+}*/
+/* end of fixed footer */
 
 .fullwidth {
   width: 100%;
@@ -451,7 +448,7 @@ div[comma-value] input{
 }
 
 #category {
-  padding-top: 30;
+  padding-top: 10;
 }
 
 .home-category {
@@ -477,6 +474,7 @@ div[comma-value] input{
 
 .home-category:hover span {
   font-size: 25pt;
+/* outline text: */
 /*  text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
@@ -508,7 +506,7 @@ img.img-graduation {
 img.img-wedding {
   background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/02d1a2f6c631225eccaa10cd1759c2eb/5B36F33C/t51.2885-15/s640x640/sh0.08/e35/29403124_1561000504016375_4672128844075892736_n.jpg);
   background-size: 150%;
-  background-position: -60 0;
+  background-position: -40 0;
 }
 img.img-decor {
   background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/0b5348971616659930208c801802e46f/5B5A6604/t51.2885-15/s640x640/sh0.08/e35/29403433_612707559072230_6762179983235350528_n.jpg);
@@ -517,7 +515,7 @@ img.img-any-occasion {
   background-image: url(http://h7.alamy.com/comp/F0HKX1/happy-birthday-message-card-with-gift-box-and-pink-roses-F0HKX1.jpg);
   background-size: cover;
   background-size: 160%;
-  background-position: -106px 0px;
+  background-position: -73 0px;
 }
 img.img-budget {
   background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/370c430702d759500fe43555e79d6888/5B59D238/t51.2885-15/s640x640/sh0.08/e35/24332420_1902362553410590_4122114318537850880_n.jpg);

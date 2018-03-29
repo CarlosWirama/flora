@@ -16,7 +16,7 @@ class MainFrame extends React.Component {
       <BrowserRouter>
         <div>
           <PageHeader/>
-          <main style={{overflow:'hidden'}}>
+          <main>
             {/*
             <Route path="/about" component={About} />
             <Route path="/topics" component={Topics} />*/}

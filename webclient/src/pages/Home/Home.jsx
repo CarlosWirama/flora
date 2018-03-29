@@ -107,12 +107,12 @@ const Home = () => (
         <span>budget</span>
       </div>
 
-    </div>
+      <div className="input-field col s12">
+        <i className="material-icons prefix">search</i>
+        <input type="text" id="autocomplete-input" className="autocomplete" />
+        <label htmlFor="autocomplete-input">Search</label>
+      </div>
 
-    <div className="input-field row container">
-      <i className="material-icons prefix">search</i>
-      <input type="text" id="autocomplete-input" className="autocomplete" />
-      <label htmlFor="autocomplete-input">Search</label>
     </div>
 
     {/*<!-- Popped-up filter -->*/}

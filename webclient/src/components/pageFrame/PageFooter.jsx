@@ -3,8 +3,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// import PageFooter from '../../components/pageFrame/PageFooter';
-
 const path = '/webclient/src/components/PageFrame';
 const PageFooter = () => (
   <footer className="page-footer hide-on-med-and-down">
@@ -16,7 +14,7 @@ const PageFooter = () => (
     </div>
     <div className="footer-copyright">
       <p className="container center">
-        &copy; JC Fleur Bouquet 2017
+        &copy; JC Fleur Bouquet 2018
       </p>
     </div>
   </footer>
