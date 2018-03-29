@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import PageHeader from './pageFrame/PageHeader';
+import PageFooter from './pageFrame/PageFooter';
 import Home from '../pages/Home/Home';
 import Product from '../pages/Product/Product';
 import Delivery from '../modules/preorder/Delivery';
@@ -34,6 +35,7 @@ class MainFrame extends React.Component {
             </a>
           </div>*/}
 
+          <PageFooter/>
         </div>
       </BrowserRouter>
     );

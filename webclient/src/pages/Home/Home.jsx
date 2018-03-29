@@ -3,7 +3,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { CSSTransitionGroup } from 'react-transition-group';
-
 import BottomNav from '../../components/pageFrame/BottomNav';
 import ProductCard from '../../components/ProductCard';
 
@@ -15,6 +14,14 @@ const products = [
   { name:'Just The Way You Are', img: path + '/../Product/krisan.jpg', price: '650.000', url:'/product/1', description:'The captivating pink roses bouquet is suitable for any special occasion.' },
 ];
 
+function scrollTo(id , event) {
+  event.preventDefault();
+  document.querySelector(id).scrollIntoView({ 
+    block: "start",
+    behavior: 'smooth',
+  });
+}
+
 const Home = () => (
   <div className="page-container">
     {/*<!--  MAIN BANNER -->*/}
@@ -23,26 +30,30 @@ const Home = () => (
         <div id="sementara" className="container">
         <h3>Welcome or Promo Banner</h3><br/>
         <h5>insta-story sized banner with buttons:</h5>
-        <button className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
+        <button className="btn scroll-btn waves-effect waves-light" style={{padding: "0 1.8rem"}}
+          // onClick={ (e)=>scrollTo('#recommended', e) }
+          onClick={ () => alert('not yet implemented')}
+        >
           <i className="material-icons left">favorite_border</i>
-          <b>Express</b> Booking
+          <b>Rush</b> Service
         </button>
-        <a href="#category" className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
+        <button className="btn scroll-btn waves-effect waves-light" style={{padding: "0 1.8rem"}}
+          onClick={ (e)=>scrollTo('#category', e) }
+        >
           <i className="material-icons left">favorite_border</i>
-          <b>I know</b> what I'm looking for
-        </a>
-        <a href="#recommended-title" className="btn waves-effect waves-light" style={{padding: "0 1.8rem"}}>
+          <span className='truncate'><b>I know</b> what I'm looking for</span>
+        </button>
+        <button className="btn scroll-btn waves-effect waves-light" style={{padding: "0 1.8rem"}}
+          onClick={ (e)=>scrollTo('#recommended', e) }
+        >
           <i className="material-icons left">favorite_border</i>
           I don't. <b>Recommend</b> Me
-        </a>
-
-
+        </button>
       {/*SEMENTARA*/}
         <Link to="/product/add" className="btn red waves-effect waves-light" style={{padding: "0 1.8rem"}}>
           <i className="material-icons left">favorite_border</i>
           Add <b>Product</b>
         </Link>
-
 
         <h6>
           No discount? Yup! We don't mark up our prices nor fool our
@@ -51,16 +62,9 @@ const Home = () => (
       </div>
     </div>
 
-    {/*<div className="row">
-      <img src={path + '/tes_banner.jpg'} className="responsive-img" />
-    </div>
-    <div className="row container">
-      <img src={path + "/tes_promo.jpg"} className="responsive-img" />
-    </div>*/}
+    <div id="recommended" className="row container">
 
-    <div className="row container">
-
-      <div id="recommended-title" className="col s12">
+      <div className="col s12 section">
         <h5>Recommended Buké</h5>
         <hr/>
       </div>
@@ -74,6 +78,41 @@ const Home = () => (
 
       {/*<a href="#!" className="right">show more...</a>*/}
 
+    </div>
+
+    <div id="category" className="row container">
+
+      <div className='home-category col s6 m4'>
+        <img className='img img-romantic' />
+        <span>romantic</span>
+      </div>
+      <div className='home-category col s6 m4'>
+        <img className='img img-graduation' />
+        <span>graduation</span>
+      </div>
+      <div className='home-category col s6 m4'>
+        <img className='img img-wedding' />
+        <span>wedding</span>
+      </div>
+      <div className='home-category col s6 m4'>
+        <img className='img img-decor' />
+        <span>decoration</span>
+      </div>
+      <div className='home-category col s6 m4'>
+        <img className='img img-any-occasion' />
+        <span>any occasion</span>
+      </div>
+      <div className='home-category col s6 m4'>
+        <img className='img img-budget' />
+        <span>budget</span>
+      </div>
+
+    </div>
+
+    <div className="input-field row container">
+      <i className="material-icons prefix">search</i>
+      <input type="text" id="autocomplete-input" className="autocomplete" />
+      <label htmlFor="autocomplete-input">Search</label>
     </div>
 
     {/*<!-- Popped-up filter -->*/}
