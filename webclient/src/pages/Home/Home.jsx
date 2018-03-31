@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { CSSTransitionGroup } from 'react-transition-group';
 import BottomNav from '../../components/pageFrame/BottomNav';
 import ProductCard from '../../components/ProductCard';
+import SearchModal, { SearchModalTrigger } from '../../modules/product/searchModal';
 
 
 const path = '/webclient/src/pages/Home';
@@ -32,7 +33,7 @@ const Home = () => (
         <h5>insta-story sized banner with buttons:</h5>
         <button className="btn scroll-btn waves-effect waves-light" style={{padding: "0 1.8rem"}}
           // onClick={ (e)=>scrollTo('#recommended', e) }
-          onClick={ () => alert('not yet implemented')}
+          onClick={ () => alert('not yet implemented: LINE Chat')}
         >
           <i className="material-icons left">favorite_border</i>
           <b>Rush</b> Service
@@ -107,13 +108,16 @@ const Home = () => (
         <span>budget</span>
       </div>
 
-      <div className="input-field col s12">
+      {/*<div className="input-field col s12">
         <i className="material-icons prefix">search</i>
         <input type="text" id="autocomplete-input" className="autocomplete" />
         <label htmlFor="autocomplete-input">Search</label>
-      </div>
+      </div>*/}
+      <SearchModalTrigger className='col s12' text='search'/>
 
     </div>
+
+    <SearchModal />
 
     {/*<!-- Popped-up filter -->*/}
     {/*<!-- <div className="row container">

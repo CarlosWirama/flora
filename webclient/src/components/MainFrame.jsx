@@ -9,6 +9,8 @@ import Delivery from '../modules/preorder/Delivery';
 import AddProduct from '../modules/product/AddProduct';
 import Todo from "./Todo";
 
+const NotFound = Home;
+
 class MainFrame extends React.Component {
 
   render() {
@@ -25,6 +27,7 @@ class MainFrame extends React.Component {
               <Route path="/product/add" component={AddProduct} />
               <Route path="/product" component={Product} />
               <Route path="/delivery" component={Delivery} />
+              <Route component={NotFound}/>
             </Switch>
           </main>
 

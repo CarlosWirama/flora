@@ -9,13 +9,16 @@ import TodoModel from "./models/TodoModel";
 
 import MainFrame from "./components/MainFrame";
 
-
 //// setup mobX
 const store = new TodoListModel();
 
+// const isDev = process.env.NODE_ENV === 'DEVELOPMENT'
+// const isDev = 'DEVELOPMENT'
+const isDev = false
+
 render(
   <div>
-    <DevTools />
+    { isDev == 'DEVELOPMENT' && <DevTools />}
     {/*<TodoList store={store} />*/}
     <MainFrame store={store}/>
   </div>,

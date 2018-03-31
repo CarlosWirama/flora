@@ -31,8 +31,20 @@ header nav .button-collapse {
   margin: 0px;
 }
 
-.icon {
-  width: 24px;
+.flex {
+  display: flex;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.icon-btn {
+  width: 44;
+}
+.icon-btn i {
+  padding: 10;
+  font-size: 24px;
 }
 
 #basket {
@@ -196,10 +208,6 @@ a {
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: alpha(opacity=20) grayscale(100%);
   opacity: 0.2;
-}
-
-.card .icon i {
-  padding: 10;
 }
 
 .card-desc {
@@ -486,6 +494,15 @@ div[comma-value] input{
   background-blend-mode: unset;
 }
 
+@media only screen and (max-width: 600px) {
+  .home-category span {
+    font-size: 15pt;
+  }
+  .home-category:hover span {
+    font-size: 19pt;
+  }
+}
+
 img.img {
   background-size: contain;
   background-color: #ccc;
@@ -521,3 +538,55 @@ img.img-budget {
   background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/370c430702d759500fe43555e79d6888/5B59D238/t51.2885-15/s640x640/sh0.08/e35/24332420_1902362553410590_4122114318537850880_n.jpg);
 }
 
+input.search-input {
+  border: none;
+  margin: 0;
+  flex-grow: 1;
+  color: black;
+  height: 56px;
+  font-size: 18px;
+}
+input.search-input:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.search-options {
+  margin-bottom: 19;
+}
+
+.search-options .list {
+  font-weight: 200;
+  margin: 0 20px;
+  padding: 8px 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.search-param-options {
+  overflow-x: scroll;
+  white-space: nowrap;
+  min-height: 39px;
+}
+
+.search-param-options .chip {
+  margin-bottom: 0;
+}
+
+.color-bubble {
+  height: 32;
+  width: 32;
+  padding: 8;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10;
+  vertical-align: baseline;
+}
+
+.color-bubble.white {
+  border: 1px solid lightgray;
+}
+
+nav .icon-btn i {
+  padding: 0;
+  color: black;
+}
