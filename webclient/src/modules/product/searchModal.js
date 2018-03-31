@@ -4,11 +4,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { observable, action } from "mobx";
 import { observer } from "mobx-react";
+import { getProducts } from "./productController";
 
 export const SearchModalTrigger = props =>
-  <a href="#modalSearch" className={"flex modal-trigger "+props.className}>
+  <a id='search-modal-trigger' href="#modalSearch" className={"flex modal-trigger "+props.className}>
     <i className="material-icons prefix">search</i>
-    <input value={props.text} readOnly style={{flexGrow:1, height:'2rem', marginLeft:5}}/>
+    <input value={props.text} disabled style={{height:'2rem', margin:'0'}}/>
   </a>
 
 @observer
@@ -28,6 +29,10 @@ export default class SearchModal extends React.Component {
 
   @action
   _clearQuery = () => { this.query = ''; this.searchInput.focus(); }
+
+  _search = () => getProducts(
+    this.query.split(/\b/).filter( item => /\w/.test(item) )
+  ).then( r => console.log(r) ).catch( err => console.error(err) )
 
   render () {
     return (
@@ -85,12 +90,17 @@ export default class SearchModal extends React.Component {
             <div className='list flex waves-effect'>salfjf</div>
             <div className='list flex waves-effect'>salfjf</div>
           </div>
-
         </div>
+
+        <CTAButton onClick={this._search}/>
       </div>
     )
   }
-
 }
 
-// export default SearchModal;
+const CTAButton = props => (
+  <button className='cta-button fullwidth btn waves-effect waves-light' onClick={props.onClick}>
+    blablabla
+  </button>
+)
+

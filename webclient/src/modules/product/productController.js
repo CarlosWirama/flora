@@ -8,10 +8,9 @@ export function addProduct (doc) {
   return crud.add('products', doc);
 }
 
-export async function getProducts () {
-  return await crud.get('products');
-}
-
-getProducts().then( r=>console.log(r) ).catch( e =>alert(e) )
+//// expect keywords = [ 'red', 'rose', 'tulip', 'etc' ]	
+export const getProducts = ( keywords=[] ) => crud.get('products',
+  keywords.map( key => ({ key:'tags.'+key, operator:'==', value:true }) )
+)
 
 export default { addProduct, getProducts };

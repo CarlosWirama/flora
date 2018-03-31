@@ -9,6 +9,8 @@ import SearchModal, { SearchModalTrigger } from '../../modules/product/searchMod
 
 
 const path = '/webclient/src/pages/Home';
+
+// getProducts().then( r=>console.log(r) ).catch( e =>alert(e) )
 const products = [
   { name:'Chrysanthemum', img: path + '/../Product/krisan.jpg', price: '440.000', url:'/product/1', description:'Thrilling and exciting at the same time.' },
   { name:'Fantasia', img: path + '/../Product/tulip.jpg', price: '550.000', url:'/product/1', description:'To set eyes on this charming bouquet is like being stranded in a mysterious islands belongs to mermaids and mystical creatures.' },
@@ -39,13 +41,13 @@ const Home = () => (
           <b>Rush</b> Service
         </button>
         <button className="btn scroll-btn waves-effect waves-light" style={{padding: "0 1.8rem"}}
-          onClick={ (e)=>scrollTo('#category', e) }
+          onClick={ e =>scrollTo('#category', e) }
         >
           <i className="material-icons left">favorite_border</i>
           <span className='truncate'><b>I know</b> what I'm looking for</span>
         </button>
         <button className="btn scroll-btn waves-effect waves-light" style={{padding: "0 1.8rem"}}
-          onClick={ (e)=>scrollTo('#recommended', e) }
+          onClick={ e =>scrollTo('#recommended', e) }
         >
           <i className="material-icons left">favorite_border</i>
           I don't. <b>Recommend</b> Me
@@ -113,8 +115,14 @@ const Home = () => (
         <input type="text" id="autocomplete-input" className="autocomplete" />
         <label htmlFor="autocomplete-input">Search</label>
       </div>*/}
-      <SearchModalTrigger className='col s12' text='or search / describe your buké here...'/>
+      <div className='col s12'>
+        <SearchModalTrigger className='col s12' text='search / describe your buké here...'/>
+      </div>
 
+    </div>
+
+    <div className='back-to-top' onClick={ e =>scrollTo('#sementara', e) }>
+      back to top
     </div>
 
     <SearchModal />

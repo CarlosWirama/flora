@@ -128,6 +128,11 @@ a {
   z-index: 996;
 }
 
+button.cta-button {
+  position: fixed;
+  bottom: 0;
+}
+
 
 .col.s2point4 {
   width: 20%;
@@ -590,3 +595,17 @@ nav .icon-btn i {
   padding: 0;
   color: black;
 }
+
+#search-modal-trigger {
+  background-color: white;
+  border-radius: 14px;
+  border-bottom: .5px solid;
+  align-items: center;
+}
+
+.back-to-top {
+  text-align: center;
+  background: lightgray;
+  color: gray;
+}
+
