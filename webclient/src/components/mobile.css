@@ -10,8 +10,11 @@ nav {
 header nav a {
   color: #c0b283;
 } 
-footer {
-  color: white;
+.page-footer {
+  background-color: lightgray;
+}
+.page-footer .footer-copyright{
+  color: black;
 }
 
 .bottom-nav-page-spare {
@@ -28,13 +31,20 @@ header nav .button-collapse {
   margin: 0px;
 }
 
-main {
-  background: linear-gradient(to right, #d9d9d9, #f2f2f2);
-  /*background-color: white;*/
+.flex {
+  display: flex;
 }
 
-.icon {
-  width: 24px;
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.icon-btn {
+  width: 44;
+}
+.icon-btn i {
+  padding: 10;
+  font-size: 24px;
 }
 
 #basket {
@@ -50,8 +60,8 @@ svg#basket {
 .page-container {
   /*height: 100%;*/
   /*height: calc( 100% - 53px - 56px );*/
-  height: calc( 100% - 56px );
-  overflow: auto;
+  /*height: calc( 100% - 56px );*/
+  /*overflow: auto;*/
 }
 
 header nav a span {
@@ -125,9 +135,9 @@ a {
 
 .welcome-banner {
   background-color: lightgreen;
-  /*height: 100%;*/
+  height: 100%;
   /*height: calc( 100% - 53px - 56px );*/
-  height: calc( 100% - 53px );
+  /*height: calc( 100% - 53px );*/
   overflow: hidden;
   margin-bottom: 20;
 }
@@ -200,10 +210,6 @@ a {
   opacity: 0.2;
 }
 
-.card .icon i {
-  padding: 10;
-}
-
 .card-desc {
   clear: left;
   font-size: 0.7rem;
@@ -264,18 +270,17 @@ a {
 }
 
 
-/*fixed footer*/
-
+/* fixed footer*/
 body {
-  display: flex;
+  /*display: flex;
   min-height: 100vh;
-  flex-direction: column;
+  flex-direction: column;*/
+  background: linear-gradient(to right, #d9d9d9, #f2f2f2);
 }
-
-main {
+/*main {
   flex: 1 0 auto;
-}
-
+}*/
+/* end of fixed footer */
 
 .fullwidth {
   width: 100%;
@@ -448,4 +453,140 @@ div[comma-value]:before{
 }
 div[comma-value] input{
   color: transparent;
+}
+
+#category {
+  padding-top: 10;
+}
+
+.home-category {
+  position: relative;
+  margin-bottom: 20;
+}
+
+.home-category span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20pt;
+  text-align: center;
+
+  text-shadow: 2px 1.5px black;
+}
+
+.home-category img {
+  background-blend-mode: color-burn;
+}
+
+.home-category:hover span {
+  font-size: 25pt;
+/* outline text: */
+/*  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;*/
+
+}
+.home-category:hover img {
+  background-blend-mode: unset;
+}
+
+@media only screen and (max-width: 600px) {
+  .home-category span {
+    font-size: 15pt;
+  }
+  .home-category:hover span {
+    font-size: 19pt;
+  }
+}
+
+img.img {
+  background-size: contain;
+  background-color: #ccc;
+  width: 100%;
+  padding-top: 100%;
+}
+
+img.img-romantic {
+  background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/bd02d6b0db0eac916a12bef87f8d8d9a/5B3B8A65/t51.2885-15/s640x640/sh0.08/e35/26865879_200824560496652_6082032582898221056_n.jpg);
+  background-size: 120%;
+  background-position: -20 -24;
+}
+img.img-graduation {
+  background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/87e9fbd845554738508db41356fdff7c/5B351A37/t51.2885-15/e35/13397653_735340299902715_1356368638_n.jpg);
+  background-size: cover;
+  background-position: -35 0;
+}
+img.img-wedding {
+  background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/02d1a2f6c631225eccaa10cd1759c2eb/5B36F33C/t51.2885-15/s640x640/sh0.08/e35/29403124_1561000504016375_4672128844075892736_n.jpg);
+  background-size: 150%;
+  background-position: -40 0;
+}
+img.img-decor {
+  background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/0b5348971616659930208c801802e46f/5B5A6604/t51.2885-15/s640x640/sh0.08/e35/29403433_612707559072230_6762179983235350528_n.jpg);
+}
+img.img-any-occasion {
+  background-image: url(http://h7.alamy.com/comp/F0HKX1/happy-birthday-message-card-with-gift-box-and-pink-roses-F0HKX1.jpg);
+  background-size: cover;
+  background-size: 160%;
+  background-position: -73 0px;
+}
+img.img-budget {
+  background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/370c430702d759500fe43555e79d6888/5B59D238/t51.2885-15/s640x640/sh0.08/e35/24332420_1902362553410590_4122114318537850880_n.jpg);
+}
+
+input.search-input {
+  border: none;
+  margin: 0;
+  flex-grow: 1;
+  color: black;
+  height: 56px;
+  font-size: 18px;
+}
+input.search-input:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.search-options {
+  margin-bottom: 19;
+}
+
+.search-options .list {
+  font-weight: 200;
+  margin: 0 20px;
+  padding: 8px 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.search-param-options {
+  overflow-x: scroll;
+  white-space: nowrap;
+  /*min-height: 49px;*/
+}
+
+.search-param-options .chip {
+  margin-bottom: 0;
+}
+
+.color-bubble {
+  height: 32;
+  width: 32;
+  padding: 8;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10;
+  vertical-align: baseline;
+}
+
+.color-bubble.white {
+  border: 1px solid lightgray;
+}
+
+nav .icon-btn i {
+  padding: 0;
+  color: black;
 }

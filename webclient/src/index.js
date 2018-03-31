@@ -9,26 +9,29 @@ import TodoModel from "./models/TodoModel";
 
 import MainFrame from "./components/MainFrame";
 
-
 //// setup mobX
 const store = new TodoListModel();
 
+// const isDev = process.env.NODE_ENV === 'DEVELOPMENT'
+// const isDev = 'DEVELOPMENT'
+const isDev = false
+
 render(
   <div>
-    <DevTools />
+    { isDev == 'DEVELOPMENT' && <DevTools />}
     {/*<TodoList store={store} />*/}
     <MainFrame store={store}/>
   </div>,
   document.getElementById("root")
 );
 
-store.addTodo("Get Coffee");
-store.addTodo("Write simpler code");
-store.todos[0].finished = true;
+// store.addTodo("Get Coffee");
+// store.addTodo("Write simpler code");
+// store.todos[0].finished = true;
 
-setTimeout(() => {
-  store.addTodo("Get a cookie as well");
-}, 2000);
+// setTimeout(() => {
+//   store.addTodo("Get a cookie as well");
+// }, 2000);
 
 // playing around in the console
 window.store = store;

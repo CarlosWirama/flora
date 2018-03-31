@@ -2,11 +2,14 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import PageHeader from './pageFrame/PageHeader';
+import PageFooter from './pageFrame/PageFooter';
 import Home from '../pages/Home/Home';
 import Product from '../pages/Product/Product';
 import Delivery from '../modules/preorder/Delivery';
 import AddProduct from '../modules/product/AddProduct';
 import Todo from "./Todo";
+
+const NotFound = Home;
 
 class MainFrame extends React.Component {
 
@@ -15,7 +18,7 @@ class MainFrame extends React.Component {
       <BrowserRouter>
         <div>
           <PageHeader/>
-          <main style={{overflow:'hidden'}}>
+          <main>
             {/*
             <Route path="/about" component={About} />
             <Route path="/topics" component={Topics} />*/}
@@ -24,6 +27,7 @@ class MainFrame extends React.Component {
               <Route path="/product/add" component={AddProduct} />
               <Route path="/product" component={Product} />
               <Route path="/delivery" component={Delivery} />
+              <Route component={NotFound}/>
             </Switch>
           </main>
 
@@ -34,6 +38,7 @@ class MainFrame extends React.Component {
             </a>
           </div>*/}
 
+          <PageFooter/>
         </div>
       </BrowserRouter>
     );

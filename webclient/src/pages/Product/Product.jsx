@@ -3,8 +3,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// import PageFooter from '../../components/pageFrame/PageFooter';
-
 const path = '/webclient/src/pages/Product';
 const Product = () => (
   <div>

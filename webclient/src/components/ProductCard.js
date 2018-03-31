@@ -25,7 +25,11 @@ export default class ProductCard extends React.Component {
         url: 'https://flora-247.firebaseapp.com/' + product.url,
       }).then( () => console.log('Successful share') )
         .catch( error => console.log('Error sharing', error));
-    } else {}
+    } else {
+      ( url => prompt(
+        "Share product link", "flora-247.firebaseapp.com" + url
+      ) ) (product.url);
+    }
   }
 
   render () {
@@ -35,11 +39,11 @@ export default class ProductCard extends React.Component {
           <div className="card" key='front'>
             <img src={this.props.img} onClick={this._flipCard} />
             <div>
-              <a href="#!" className="icon"><i className="material-icons">favorite_border</i></a>
-              <a href="#!" className="icon" onClick={this._share}><i className="material-icons">share</i></a>
-              <a href="#!" className="icon" onClick={this._flipCard}><i className="material-icons right">info_outline</i></a>
+              <a href="#!" className="icon-btn"><i className="material-icons">favorite_border</i></a>
+              <a href="#!" className="icon-btn" onClick={()=>this._share(this.props)}><i className="material-icons">share</i></a>
+              <a href="#!" className="icon-btn" onClick={this._flipCard}><i className="material-icons right">info_outline</i></a>
             </div>
-            <div className="divider"></div>
+            <div className="divider" />
 
     { /*this.props.isButtonRight ?*/
             <div style={{display:'flex', justifyContent: 'space-between'}}>
@@ -75,8 +79,8 @@ export default class ProductCard extends React.Component {
                 </p>
               </div>
             </div>
-            <a href="#!" className="icon"><i className="material-icons">arrow_backs</i></a>
-            <div className="divider"></div>
+            <a href="#!" className="icon-btn"><i className="material-icons">arrow_backs</i></a>
+            <div className="divider" />
 
     { /*this.props.isButtonRight ?*/
             <div style={{display:'flex'}}>
