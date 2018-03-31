@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { observable, action } from "mobx";
+import { observable, action, computed } from "mobx";
 import { observer } from "mobx-react";
 import { addProduct } from "./productController";
 // const path = '/webclient/src/pages/Product';
@@ -25,16 +25,23 @@ class AddProduct extends React.Component {
   createEmptyForm = () => ({ ...this.formModel });
 
   @observable form = this.createEmptyForm()
+  @observable isLoading = false
 
   @action
+  _constructTagModel = () => {
+    let tags = {};
+    this.refs.tags.value.split(', ').map( tag =>{ if(tag) tags[tag] = true });
+    this.form.tags = tags;
+  }
+
   _onSubmit = e => {
     e.preventDefault();
-    //// manually get tags' value
-    this.form.tags = this.refs.tags.value.split(', ');
+    this._constructTagModel();
+    this.isLoading = true;
     addProduct(this.form).then( r => {
       alert('successfully added product '+this.form+' with id '+r)
       this.form = this.createEmptyForm();
-    });
+    }).catch( e => alert(e) ).finally( r => this.isLoading = false );
   }
 
   @action
@@ -79,7 +86,7 @@ class AddProduct extends React.Component {
 
 
           <div className="col s12" style={{marginTop: 10}}>
-            <input type="submit" className="btn red fullwidth" value="add to basket" />
+            <input type="submit" className={'btn fullwidth ' + (this.isLoading ? 'grey' : 'red')} value="add to basket" />
           </div>
 
         </div>
@@ -90,6 +97,9 @@ class AddProduct extends React.Component {
 
 @observer
 class InputField extends React.Component {
+
+  @observable commaSeparatedValue = ''
+
   render () {
     let { fieldName, arrayOfFields, required, label, type, formatter } = this.props;
     let value = arrayOfFields[fieldName];
@@ -109,11 +119,12 @@ class InputField extends React.Component {
   _inputChange = e => {
     const {name, type, checked, value } = e.target;
     const newValue = type === 'checkbox' ? checked : value;
-    if (type === 'number') this._commify(value);
+    if (type === 'number') this._immitateCommaSeparation(value);
     this.props.arrayOfFields[name] = newValue;
   }
 
-  _commify = value => {
+  // @computed get commaSeparatedValue = value => {
+  _getCommaSeparatedValue = value => {
     var chars = value.split("").reverse()
     var withCommas = []
     for(var i = 1; i <= chars.length; i++ ) {
@@ -122,8 +133,15 @@ class InputField extends React.Component {
         withCommas.push(".")
       }
     }
-    var val = withCommas.reverse().join("")
-    this.refs.input.parentNode.setAttribute("comma-value",val)
+    return withCommas.reverse().join("");
+  }
+
+  @action
+  _immitateCommaSeparation = value => {
+    this.commaSeparatedValue = this._getCommaSeparatedValue(value);
+    // this.commaSeparatedValue = this._getCommaSeparatedValue(value);
+    // this.commaSeparatedValue = withCommas.reverse().join("")
+    this.refs.input.parentNode.setAttribute("comma-value",this.commaSeparatedValue)
   }
 
 }

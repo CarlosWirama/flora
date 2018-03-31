@@ -40,7 +40,7 @@ export default class SearchModal extends React.Component {
             <input className='search-input' ref={ e => this.searchInput = e } type='text'
               value={this.query}
               onChange={this._searchInputChange}
-              // className= 'left'//'col s10'
+              placeholder='describe your dream buké...'
             />
             { this.query &&
               <div className='icon-btn waves-effect waves-light' style={{display:'inline-block'}}>
@@ -49,7 +49,8 @@ export default class SearchModal extends React.Component {
             }
           </div>
         </nav>
-        <div className='section container overflow-scroll'>
+
+        <div className='section container'>
 
           <div className='search-options'>
             <h6>Flower</h6>

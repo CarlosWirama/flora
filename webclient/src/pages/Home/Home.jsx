@@ -113,7 +113,7 @@ const Home = () => (
         <input type="text" id="autocomplete-input" className="autocomplete" />
         <label htmlFor="autocomplete-input">Search</label>
       </div>*/}
-      <SearchModalTrigger className='col s12' text='search'/>
+      <SearchModalTrigger className='col s12' text='or search / describe your buké here...'/>
 
     </div>
 

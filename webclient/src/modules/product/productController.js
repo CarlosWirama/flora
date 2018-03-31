@@ -12,6 +12,6 @@ export async function getProducts () {
   return await crud.get('products');
 }
 
-getProducts().then(r=>console.log(r))
+getProducts().then( r=>console.log(r) ).catch( e =>alert(e) )
 
 export default { addProduct, getProducts };

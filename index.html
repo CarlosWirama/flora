@@ -1,11 +1,11 @@
 <html>
   <head>
-    <title>Flora</title>
-    <meta name="description" content="description of your website/webpage, make sure you use keywords!" />
-    <meta property="og:title" content="short title of your website/webpage" />
-    <meta property="og:url" content="https://www.example.com/webpage/" />
-    <meta property="og:description" content="description of your website/webpage" />
-    <meta property="og:image" content="https://i.pinimg.com/736x/7b/96/e4/7b96e4c8d90f2c01c814fd4f4b59120a--flower-bouquets-graduation-bouquet-flowers.jpg" />
+    <title>Buké</title>
+    <meta name="description" content="description of website, make sure you use keywords!" />
+    <meta property="og:title" content="Buké" />
+    <meta property="og:url" content="https://flowerbuke.com/" />
+    <meta property="og:description" content="description of website" />
+    <meta property="og:image" content="https://instagram.fpku1-1.fna.fbcdn.net/vp/e502b708363e60b5eb5f8841a1a47aeb/5B6DFE82/t51.2885-15/e35/21819800_117225829022676_1209945416028651520_n.jpg"/>
     <meta property="og:type" content="website" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -20,8 +20,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.js"></script><!-- 
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/wNumb.js"></script> -->
-    <!-- <script src="/dist/bundle.js"></script> -->
-    <script src="/bundle.js"></script>
+    <script src="/dist/bundle.js"></script>
+    <!-- <script src="/bundle.js"></script> -->
     <script type="text/javascript">
     $(document).ready(function(){
 
@@ -89,7 +89,11 @@
 	  //     menuWidth: screen.width - 60,
 	  //     closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
 	  //   });
-	  $('.modal').modal();
+	  $('#modalSearch').modal({
+        ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+          $('.search-input').focus();
+        },
+      });
     });
     </script>
   </body>
