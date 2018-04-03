@@ -39,9 +39,9 @@ export default class ProductCard extends React.Component {
           <div className="card" key='front'>
             <img src={this.props.img} onClick={this._flipCard} />
             <div>
-              <a href="#!" className="icon-btn"><i className="material-icons">favorite_border</i></a>
-              <a href="#!" className="icon-btn" onClick={()=>this._share(this.props)}><i className="material-icons">share</i></a>
-              <a href="#!" className="icon-btn" onClick={this._flipCard}><i className="material-icons right">info_outline</i></a>
+              <a href="#!"><i className="material-icons icon-btn">favorite_border</i></a>
+              <a href="#!" onClick={()=>this._share(this.props)}><i className="material-icons icon-btn">share</i></a>
+              <a href="#!" onClick={this._flipCard}><i className="material-icons icon-btn right">info_outline</i></a>
             </div>
             <div className="divider" />
 
@@ -79,7 +79,7 @@ export default class ProductCard extends React.Component {
                 </p>
               </div>
             </div>
-            <a href="#!" className="icon-btn"><i className="material-icons">arrow_backs</i></a>
+            <a href="#!"><i className="material-icons icon-btn">arrow_backs</i></a>
             <div className="divider" />
 
     { /*this.props.isButtonRight ?*/

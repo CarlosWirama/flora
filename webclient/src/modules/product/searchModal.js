@@ -39,8 +39,8 @@ export default class SearchModal extends React.Component {
     	<div id="modalSearch" className="modal bottom-sheet" style={{minHeight:'100%'}}>
         <nav className='navbar-fixed z-depth-1'>
           <div className='nav-wrapper container flex'>
-            <a href='#!' className='icon-btn modal-action modal-close'>
-              <i className="material-icons" style={{width:44}}>arrow_backs</i>
+            <a href='#!' className='modal-action modal-close'>
+              <i className="material-icons icon-btn" style={{width:44}}>arrow_backs</i>
             </a>
             <input className='search-input' ref={ e => this.searchInput = e } type='text'
               value={this.query}
@@ -48,8 +48,8 @@ export default class SearchModal extends React.Component {
               placeholder='describe your dream buké...'
             />
             { this.query &&
-              <div className='icon-btn waves-effect waves-light' style={{display:'inline-block'}}>
-                <i className="material-icons" onClick={this._clearQuery}>close</i>
+              <div className='waves-effect waves-light' style={{display:'inline-block'}}>
+                <i className="material-icons icon-btn" onClick={this._clearQuery}>close</i>
               </div>
             }
           </div>

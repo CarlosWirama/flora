@@ -40,11 +40,9 @@ header nav .button-collapse {
 }
 
 .icon-btn {
-  width: 44;
-}
-.icon-btn i {
   padding: 10;
   font-size: 24px;
+  width: 44;
 }
 
 #basket {
@@ -516,9 +514,10 @@ img.img {
 }
 
 img.img-romantic {
-  background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/bd02d6b0db0eac916a12bef87f8d8d9a/5B3B8A65/t51.2885-15/s640x640/sh0.08/e35/26865879_200824560496652_6082032582898221056_n.jpg);
+  /*background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/bd02d6b0db0eac916a12bef87f8d8d9a/5B3B8A65/t51.2885-15/s640x640/sh0.08/e35/26865879_200824560496652_6082032582898221056_n.jpg);
   background-size: 120%;
-  background-position: -20 -24;
+  background-position: -20 -24;*/
+  background-image: url(https://instagram.fcgk13-1.fna.fbcdn.net/vp/597a6668b6d84a1e084fc4b607b9b1e3/5B54B052/t51.2885-15/e35/29094416_183309499142160_3906555248595959808_n.jpg);
 }
 img.img-graduation {
   background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/87e9fbd845554738508db41356fdff7c/5B351A37/t51.2885-15/e35/13397653_735340299902715_1356368638_n.jpg);
@@ -534,10 +533,11 @@ img.img-decor {
   background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/0b5348971616659930208c801802e46f/5B5A6604/t51.2885-15/s640x640/sh0.08/e35/29403433_612707559072230_6762179983235350528_n.jpg);
 }
 img.img-any-occasion {
-  background-image: url(http://h7.alamy.com/comp/F0HKX1/happy-birthday-message-card-with-gift-box-and-pink-roses-F0HKX1.jpg);
+  /*background-image: url(http://h7.alamy.com/comp/F0HKX1/happy-birthday-message-card-with-gift-box-and-pink-roses-F0HKX1.jpg);
   background-size: cover;
   background-size: 160%;
-  background-position: -73 0px;
+  background-position: -73 0px;*/
+  background-image: url(https://instagram.fcgk13-1.fna.fbcdn.net/vp/9ad34a4c4a36d574db3eded4757c587f/5B7353E0/t51.2885-15/e35/25011859_141553429838166_5364904496235282432_n.jpg);
 }
 img.img-budget {
   background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/370c430702d759500fe43555e79d6888/5B59D238/t51.2885-15/s640x640/sh0.08/e35/24332420_1902362553410590_4122114318537850880_n.jpg);
