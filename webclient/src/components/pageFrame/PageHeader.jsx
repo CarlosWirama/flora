@@ -1,9 +1,10 @@
 'use strict';
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
-const PageHeader = () => (
+const PageHeader = withRouter(props => <PageHeaderLayout {...props}/>);
+const PageHeaderLayout = props => (
   <header>
     <div className="navbar-fixed">
       {/* nav-extended untuk filter-sort */}
@@ -11,8 +12,12 @@ const PageHeader = () => (
         <div className="nav-wrapper container">
                       {/*<!-- removed class: show-on-large -->*/}
           {/*<a href="#" data-activates="side-nav" className="button-collapse">*/}
-          {/*<a href='#!' className='icon left hide-on-large-only'><i className="material-icons">arrow_backs</i></a>*/}
-          <Link to="/"><h5 className="brand-logo">JC Fleur Bouquet</h5></Link>
+          { props.location.pathname!='/' &&
+            <a href='#!' className='icon left hide-on-large-only'>
+              <i className="material-icons">arrow_backs</i>
+            </a>
+          }
+          <Link to="/"><h5 className="brand-logo">buké</h5></Link>
           <a href="#!/basket" className="right" style={{position:"relative"}}>
             {/*<img id="basket" className="icon" src="images/handbag.svg" />*/}
             <span>0</span>
