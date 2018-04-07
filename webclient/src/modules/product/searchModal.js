@@ -1,24 +1,21 @@
 'use strict';
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { observable, action } from "mobx";
 import { observer } from "mobx-react";
 import { getProducts } from "./productController";
+import { Modal } from 'react-materialize';
+import { CSSTransition } from 'react-transition-group';
 
-export const SearchModalTrigger = props =>
-  <a id='search-modal-trigger' href="#modalSearch" className={"flex modal-trigger "+props.className}>
-    <i className="material-icons prefix">search</i>
-    <input value={props.text} disabled style={{height:'2rem', margin:'0'}}/>
-  </a>
+const SearchModal = withRouter(props => <SearchModalLayout {...props}/>);
 
 @observer
-export default class SearchModal extends React.Component {
+class SearchModalLayout extends React.Component {
 
   @observable query = ''
 
-  @action
-  _searchInputChange = e => this.query = e.target.value
+  @action _searchInputChange = e => this.query = e.target.value
 
   @action
   _addQuery = query => {
@@ -30,31 +27,51 @@ export default class SearchModal extends React.Component {
   @action
   _clearQuery = () => { this.query = ''; this.searchInput.focus(); }
 
-  _search = () => getProducts(
-    this.query.split(/\b/).filter( item => /\w/.test(item) )
-  ).then( r => console.log(r) ).catch( err => console.error(err) )
+  _search = () => {
+    this._hideModal()
+    getProducts(
+      this.query.split(/\b/).filter( item => /\w/.test(item) )
+    ).then( r => this.props.history.push('/product/add', {getProducts: 'ssss'}) )
+    .catch( err => console.error(err) )
+  }
+
+  _hideModal = this.props.toggle
+
 
   render () {
     return (
-    	<div id="modalSearch" className="modal bottom-sheet" style={{minHeight:'100%'}}>
+      <div id='search-modal' style={{minHeight:'100%',maxWidth:'100%'}}>
         <nav className='navbar-fixed z-depth-1'>
           <div className='nav-wrapper container flex'>
-            <a href='#!' className='modal-action modal-close'>
-              <i className="material-icons icon-btn" style={{width:44}}>arrow_backs</i>
+            <a onClick={this._hideModal}>
+              <i className="material-icons icon-btn">arrow_backs</i>
             </a>
-            <input className='search-input' ref={ e => this.searchInput = e } type='text'
-              value={this.query}
-              onChange={this._searchInputChange}
-              placeholder='describe your dream buké...'
-            />
-            { this.query &&
-              <div className='waves-effect waves-light' style={{display:'inline-block'}}>
-                <i className="material-icons icon-btn" onClick={this._clearQuery}>close</i>
-              </div>
-            }
+            <div className='flex' style={{flex:1}}>
+              <form onSubmit={this._search}>
+                <input
+                  className='search-input'
+                  ref={ e => this.searchInput = e }
+                  type='text'
+                  value={this.query}
+                  onChange={this._searchInputChange}
+                  placeholder='describe your dream buké...'
+                />
+              </form>
+              { this.query &&
+                <div className='waves-effect waves-light center'>
+                  <i className="material-icons icon-btn" onClick={this._clearQuery}>close</i>
+                </div>
+              }
+            </div>
+            <div
+              className='waves-effect waves-light'
+              style={{display:'inline-block', textAlign: 'end'}}
+              onClick={this._search}
+            >
+              <i className="material-icons icon-btn" onClick={this._clearQuery}>search</i>
+            </div>
           </div>
         </nav>
-
         <div className='section container'>
 
           <div className='search-options'>
@@ -69,15 +86,15 @@ export default class SearchModal extends React.Component {
           <div className='search-options'>
             <h6>Color Theme</h6>
             <div className='search-param-options'>
-              <div className='color-bubble waves-effect red darken-4' onClick={()=>this._addQuery('red')} />
+              <div className='color-bubble waves-effect red darken-4'   onClick={()=>this._addQuery('red')} />
               <div className='color-bubble waves-effect pink lighten-2' onClick={()=>this._addQuery('pink')} />
               <div className='color-bubble waves-effect pink lighten-4' onClick={()=>this._addQuery('softpink')} />
-              <div className='color-bubble waves-effect white' onClick={()=>this._addQuery('white')} />
-              <div className='color-bubble waves-effect yellow' onClick={()=>this._addQuery('yellow')} />
+              <div className='color-bubble waves-effect white'          onClick={()=>this._addQuery('white')} />
+              <div className='color-bubble waves-effect yellow'         onClick={()=>this._addQuery('yellow')} />
               <div className='color-bubble waves-effect light-green lighten-3' onClick={()=>this._addQuery('green')} />
               <div className='color-bubble waves-effect purple lighten-3' onClick={()=>this._addQuery('purple')} />
               <div className='color-bubble waves-effect orange lighten-1' onClick={()=>this._addQuery('orange')} />
-              <div className='color-bubble waves-effect blue lighten-4' onClick={()=>this._addQuery('blue')} />
+              <div className='color-bubble waves-effect blue lighten-4'   onClick={()=>this._addQuery('blue')} />
             </div>
           </div>
           <div className='search-options'>
@@ -92,15 +109,19 @@ export default class SearchModal extends React.Component {
           </div>
         </div>
 
-        <CTAButton onClick={this._search}/>
+        <CTAButton text='Search' onClick={this._search} />
       </div>
-    )
+    );
   }
 }
 
 const CTAButton = props => (
-  <button className='cta-button fullwidth btn waves-effect waves-light' onClick={props.onClick}>
-    blablabla
-  </button>
+  <button
+    className={'fullwidth btn waves-effect waves-light '+props.className}
+    onClick={props.onClick}
+  >{props.text}</button>
 )
+
+export default SearchModal;
+
 

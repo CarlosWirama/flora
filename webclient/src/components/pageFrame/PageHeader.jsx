@@ -13,7 +13,7 @@ const PageHeaderLayout = props => (
                       {/*<!-- removed class: show-on-large -->*/}
           {/*<a href="#" data-activates="side-nav" className="button-collapse">*/}
           { props.location.pathname!='/' &&
-            <a href='#!' className='icon left hide-on-large-only'>
+            <a onClick={props.history.goBack} className='icon left hide-on-large-only'>
               <i className="material-icons">arrow_backs</i>
             </a>
           }

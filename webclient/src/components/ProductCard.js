@@ -52,7 +52,7 @@ export default class ProductCard extends React.Component {
             <div style={{display:'flex', justifyContent: 'space-between'}}  onClick={this._flipCard}>
               {/*<div className='left'>*/}
               <div>
-                <h5 className="truncate">{this.props.name}</h5>
+                <h5>{this.props.name}</h5>
                 <span>IDR {this.props.price}</span>
               </div>
               {/*<Link to="/product" className="waves-effect waves-light btn brown right" style={{marginTop:15,marginLeft: 5,paddingTop:4, width:'100%'}}>

@@ -126,10 +126,10 @@ a {
   z-index: 996;
 }
 
-button.cta-button {
+/*button.cta-button {
   position: fixed;
   bottom: 0;
-}
+}*/
 
 
 .col.s2point4 {
@@ -538,6 +538,8 @@ img.img-any-occasion {
   background-size: 160%;
   background-position: -73 0px;*/
   background-image: url(https://instagram.fcgk13-1.fna.fbcdn.net/vp/9ad34a4c4a36d574db3eded4757c587f/5B7353E0/t51.2885-15/e35/25011859_141553429838166_5364904496235282432_n.jpg);
+  background-size: 108%;
+  background-position-x: center;
 }
 img.img-budget {
   background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/370c430702d759500fe43555e79d6888/5B59D238/t51.2885-15/s640x640/sh0.08/e35/24332420_1902362553410590_4122114318537850880_n.jpg);
@@ -620,5 +622,32 @@ nav i.icon-btn {
   font-size: 20px;
   color: seagreen;
   text-shadow: 1px 1px #1a462d;
+}
+
+#search-modal {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+}
+
+
+.search-modal-enter {
+  opacity: 0.01;
+  transform: translateY(100%);
+}
+.search-modal-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all 300ms ease-out;
+}
+.search-modal-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.search-modal-exit-active {
+  opacity: 0.01;
+  transform: translateY(100%);
+  transition: all 300ms ease-out;
 }
 

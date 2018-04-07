@@ -4,12 +4,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { observable, action } from "mobx";
 import { observer } from "mobx-react";
-import { CSSTransitionGroup } from 'react-transition-group';
 import BottomNav from '../../components/pageFrame/BottomNav';
 import ProductCard from '../../components/ProductCard';
 import SearchModal, { SearchModalTrigger } from '../../modules/product/searchModal';
 import { getProducts } from '../../modules/product/productController';
 
+import { CSSTransition } from 'react-transition-group';
 
 // const path = '/webclient/src/pages/Home';
 
@@ -24,20 +24,11 @@ function scrollTo(id , event) {
 }
 
 @observer
-class Home extends React.Component {
+export default class Home extends React.Component {
 
   @observable products = [];
   @observable isLoading = false
-
-  // getInitialState = () => {
-  //     console.log(this.products)
-  //     this.isLoading = true;
-  //     getProducts()
-  //     .then( r => this.products = r )
-  //     .catch( e => alert(e) )
-  //     .finally( () => this.isLoading = false );
-  
-  // }
+  @observable showSearchModal = false
 
   @action
   componentDidMount() {
@@ -47,6 +38,18 @@ class Home extends React.Component {
       .catch( e => alert(e) )
       .finally( () => this.isLoading = false );
   }
+
+  @action _toggleSearchModal = () => this.showSearchModal = !this.showSearchModal
+  rushService = () => alert('not yet implemented: LINE Chat')
+  // getInitialState = () => {
+  //     console.log(this.products)
+  //     this.isLoading = true;
+  //     getProducts()
+  //     .then( r => this.products = r )
+  //     .catch( e => alert(e) )
+  //     .finally( () => this.isLoading = false );
+  
+  // }
 
   render() {
     return (
@@ -58,8 +61,7 @@ class Home extends React.Component {
             <h3>Welcome or Promo Banner</h3><br/>
             <h5>insta-story sized banner with buttons:</h5>
             <button className="btn scroll-btn waves-effect waves-light" style={{padding: "0 1.8rem"}}
-              // onClick={ (e)=>scrollTo('#recommended', e) }
-              onClick={ () => alert('not yet implemented: LINE Chat')}
+              onClick={this.rushService}
             >
               <i className="material-icons left">favorite_border</i>
               <b>Rush</b> Service
@@ -141,16 +143,26 @@ class Home extends React.Component {
             <label htmlFor="autocomplete-input">Search</label>
           </div>*/}
           <div className='col s12'>
-            <SearchModalTrigger className='col s12' text='search / describe your buké here...'/>
+            <a id='search-modal-trigger' className="flex col s12" onClick={this._toggleSearchModal}>
+              <i className="material-icons prefix">search</i>
+              <input value='search / describe your buké here...' disabled style={{height:'2rem', margin:'0'}}/>
+            </a>
           </div>
 
         </div>
-
         <div className='back-to-top' onClick={ e =>scrollTo('#sementara', e) }>
           back to top
         </div>
+        <CSSTransition
+          in={this.showSearchModal}
+          timeout={300}
+          classNames='search-modal'
+          className='col s12'
+          unmountOnExit
+        >
+          <SearchModal isVisible={this.showSearchModal} toggle={this._toggleSearchModal} />
+        </CSSTransition>
 
-        <SearchModal />
 
         {/*<!-- Popped-up filter -->*/}
         {/*<!-- <div className="row container">
@@ -251,4 +263,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+// export default Home;
