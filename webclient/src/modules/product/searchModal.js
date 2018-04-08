@@ -1,79 +1,46 @@
 'use strict';
 
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { observable, action } from "mobx";
 import { observer } from "mobx-react";
-import { getProducts } from "./productController";
-import { Modal } from 'react-materialize';
-import { CSSTransition } from 'react-transition-group';
+// import { getProducts } from "./productController";
+import SearchHeader from "./SearchHeader";
 
-const SearchModal = withRouter(props => <SearchModalLayout {...props}/>);
+// const SearchModal = props => <SearchModal {...props}/>);
 
 @observer
-class SearchModalLayout extends React.Component {
+class SearchModal extends React.Component {
 
   @observable query = ''
-
-  @action _searchInputChange = e => this.query = e.target.value
+  @action changeQuery = newQuery => this.query = newQuery
 
   @action
   _addQuery = query => {
-    this.searchInput.focus();
+    this.searchHeader.focusInput();
     let re = new RegExp(`\\b${query}\\b`, "i");
     if (!re.test(this.query)) return this.query += ` ${query} `;
   }
 
-  @action
-  _clearQuery = () => { this.query = ''; this.searchInput.focus(); }
-
   _search = () => {
-    this._hideModal()
-    getProducts(
-      this.query.split(/\b/).filter( item => /\w/.test(item) )
-    ).then( r => this.props.history.push('/product/add', {getProducts: 'ssss'}) )
-    .catch( err => console.error(err) )
+    let q = this.query.split(/\b/)
+                      .filter( item => /\w/.test(item) )
+                      .join('+');
+    let queryString = q && '?q=' + q;
+    this.props.history.push('/search' + queryString );
   }
-
-  _hideModal = this.props.toggle
-
 
   render () {
     return (
       <div id='search-modal' style={{minHeight:'100%',maxWidth:'100%'}}>
-        <nav className='navbar-fixed z-depth-1'>
-          <div className='nav-wrapper container flex'>
-            <a onClick={this._hideModal}>
-              <i className="material-icons icon-btn">arrow_backs</i>
-            </a>
-            <div className='flex' style={{flex:1}}>
-              <form onSubmit={this._search}>
-                <input
-                  className='search-input'
-                  ref={ e => this.searchInput = e }
-                  type='text'
-                  value={this.query}
-                  onChange={this._searchInputChange}
-                  placeholder='describe your dream buké...'
-                />
-              </form>
-              { this.query &&
-                <div className='waves-effect waves-light center'>
-                  <i className="material-icons icon-btn" onClick={this._clearQuery}>close</i>
-                </div>
-              }
-            </div>
-            <div
-              className='waves-effect waves-light'
-              style={{display:'inline-block', textAlign: 'end'}}
-              onClick={this._search}
-            >
-              <i className="material-icons icon-btn" onClick={this._clearQuery}>search</i>
-            </div>
-          </div>
-        </nav>
+        <SearchHeader
+          ref={ e => this.searchHeader = e }
+          query={this.query}
+          onChange={this.changeQuery}
+          onSearch={this._search}
+          onBackPressed={this.props.onBackPressed}
+        />
         <div className='section container'>
-
           <div className='search-options'>
             <h6>Flower</h6>
             <div className='search-param-options'>
@@ -117,11 +84,11 @@ class SearchModalLayout extends React.Component {
 
 const CTAButton = props => (
   <button
-    className={'fullwidth btn waves-effect waves-light '+props.className}
+    className={'wide-cta-btn btn waves-effect waves-light '+props.className}
     onClick={props.onClick}
   >{props.text}</button>
 )
 
-export default SearchModal;
+export default withRouter(SearchModal);
 
 

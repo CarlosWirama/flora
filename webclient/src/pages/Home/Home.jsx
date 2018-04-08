@@ -13,8 +13,6 @@ import { CSSTransition } from 'react-transition-group';
 
 // const path = '/webclient/src/pages/Home';
 
-const number = int => int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
 function scrollTo(id , event) {
   event.preventDefault();
   document.querySelector(id).scrollIntoView({ 
@@ -102,7 +100,7 @@ export default class Home extends React.Component {
             this.products.map( (product, i) =>
             <div className="col s12 m6 l4" key={i}>
               <ProductCard name={product.name} img={product.img} url={product.url}
-                price={number(product.price)} description={product.description} />
+                price={product.price} description={product.description} />
             </div>
           ) }
 
@@ -157,10 +155,9 @@ export default class Home extends React.Component {
           in={this.showSearchModal}
           timeout={300}
           classNames='search-modal'
-          className='col s12'
           unmountOnExit
         >
-          <SearchModal isVisible={this.showSearchModal} toggle={this._toggleSearchModal} />
+          <SearchModal isVisible={this.showSearchModal} onBackPressed={this._toggleSearchModal} />
         </CSSTransition>
 
 

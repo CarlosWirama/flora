@@ -631,6 +631,11 @@ nav i.icon-btn {
   background-color: white;
 }
 
+.wide-cta-btn {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
 
 .search-modal-enter {
   opacity: 0.01;

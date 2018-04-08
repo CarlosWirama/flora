@@ -38,7 +38,7 @@ export async function get (collectionName, conditions = [] ) {
     querySnapshot.forEach( doc => ret.push( doc.data() ) );
     return ret;
   } catch (err) {
-    console.err(err)
+    console.error(err)
     alert(err)
   }
 }

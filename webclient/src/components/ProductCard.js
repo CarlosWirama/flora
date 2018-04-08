@@ -3,6 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ReactCardFlip from 'react-card-flip';
+const number = int => int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const path = '/webclient/src/pages/Home';
 
@@ -35,6 +36,7 @@ export default class ProductCard extends React.Component {
   _mouseMove = e => {}//console.log(e.clientX)
 
   render () {
+    let price = 'IDR ' + number(this.props.price);
     return (
       <div className='flip-container'>
         <ReactCardFlip isFlipped={this.state.isFlipped}>
@@ -53,7 +55,7 @@ export default class ProductCard extends React.Component {
               {/*<div className='left'>*/}
               <div>
                 <h5>{this.props.name}</h5>
-                <span>IDR {this.props.price}</span>
+                <span>{price}</span>
               </div>
               {/*<Link to="/product" className="waves-effect waves-light btn brown right" style={{marginTop:15,marginLeft: 5,paddingTop:4, width:'100%'}}>
                 <i className="material-icons left">send</i>
@@ -78,7 +80,7 @@ export default class ProductCard extends React.Component {
             <div style={{ display:'flex', justifyContent:'space-between'}}>
               <div style={{width:'47%'}}>
                 <h5 className="truncate">{this.props.name}</h5>
-                <span>IDR {this.props.price}</span>
+                <span>{price}</span>
               </div>
               <div className='' style={{alignItems:'center'}}>
                 <Link to="/product" className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>

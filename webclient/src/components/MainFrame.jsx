@@ -7,6 +7,7 @@ import Home from '../pages/Home/Home';
 import Product from '../pages/Product/Product';
 import Delivery from '../modules/preorder/Delivery';
 import AddProduct from '../modules/product/AddProduct';
+import SearchResults from '../modules/product/SearchResults';
 import Todo from "./Todo";
 
 const NotFound = Home;
@@ -26,6 +27,7 @@ class MainFrame extends React.Component {
               <Route exact path="/" component={Home} />
               <Route path="/product/add" component={AddProduct} />
               <Route path="/product" component={Product} />
+              <Route path="/search" component={SearchResults} />
               <Route path="/delivery" component={Delivery} />
               <Route component={NotFound}/>
             </Switch>
