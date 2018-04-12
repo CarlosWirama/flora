@@ -588,8 +588,8 @@ input.search-input:focus {
 }
 
 .color-bubble {
-  height: 32;
-  width: 32;
+  height: 44;
+  width: 44;
   padding: 8;
   border-radius: 50%;
   display: inline-block;
@@ -637,13 +637,13 @@ nav i.icon-btn {
   top: 56;
   z-index: 990;
   background-color: white;
-  /*min-height: 100%;*/
+  height: calc(100vh - 56px);
   max-width: 100%;
 }
 
 .wide-cta-btn {
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 

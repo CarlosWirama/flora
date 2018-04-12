@@ -14,10 +14,11 @@ export default class SearchModal extends React.Component {
           <div className='search-options'>
             <h6>Flower</h6>
             <div className='search-param-options'>
-              <div className='chip waves-effect' onClick={()=>this._addQuery('rose')}><img src="/webclient/src/pages/Product/krisan.jpg"/>Rose</div>
-              <div className='chip waves-effect' onClick={()=>this._addQuery('lily')}><img src="/webclient/src/pages/Product/krisan.jpg"/>Lily</div>
-              <div className='chip waves-effect' onClick={()=>this._addQuery('tulip')}><img src="/webclient/src/pages/Product/krisan.jpg"/>Tulip</div>
-              <div className='chip waves-effect' onClick={()=>this._addQuery('chrysant')}><img src="/webclient/src/pages/Product/krisan.jpg"/>Chrysant</div>
+              <div className='chip waves-effect' onClick={()=>this._addQuery('rose')}><img src="/webclient/src/modules/product/rose.jpg"/>Rose</div>
+              <div className='chip waves-effect' onClick={()=>this._addQuery('lily')}><img src="/webclient/src/modules/product/lily.jpg"/>Lily</div>
+              <div className='chip waves-effect' onClick={()=>this._addQuery('tulip')}><img src="/webclient/src/modules/product/tulip.jpg"/>Tulip</div>
+              <div className='chip waves-effect' onClick={()=>this._addQuery('chrysanth')}><img src="/webclient/src/modules/product/chrysanth.jpg"/>Chrysanth</div>
+              <div className='chip waves-effect' onClick={()=>this._addQuery('sunflower')}><img src="/webclient/src/modules/product/sunflower.jpg"/>Sunflower</div>
             </div>
           </div>
           <div className='search-options'>
