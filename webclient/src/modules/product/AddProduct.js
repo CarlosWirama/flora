@@ -52,7 +52,6 @@ class AddProduct extends React.Component {
   }
 
   render () {
-    console.log(this.props.location.state)
     return (
       <form action='someDummyActionToAdjustKeyboardButtonProperly' onSubmit={this._onSubmit}>
         <div className="row container">

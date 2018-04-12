@@ -8,8 +8,7 @@ import BottomNav from '../../components/pageFrame/BottomNav';
 import ProductCard from '../../components/ProductCard';
 import SearchModal, { SearchModalTrigger } from '../../modules/product/searchModal';
 import { getProducts } from '../../modules/product/productController';
-
-import { CSSTransition } from 'react-transition-group';
+import SearchHeader from "../../modules/product/SearchHeader";
 
 // const path = '/webclient/src/pages/Home';
 
@@ -26,7 +25,6 @@ export default class Home extends React.Component {
 
   @observable products = [];
   @observable isLoading = false
-  @observable showSearchModal = false
 
   @action
   componentDidMount() {
@@ -37,7 +35,6 @@ export default class Home extends React.Component {
       .finally( () => this.isLoading = false );
   }
 
-  @action _toggleSearchModal = () => this.showSearchModal = !this.showSearchModal
   rushService = () => alert('not yet implemented: LINE Chat')
   // getInitialState = () => {
   //     console.log(this.products)
@@ -52,12 +49,15 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="page-container">
+        <SearchHeader/>
         {/*<!--  MAIN BANNER -->*/}
+        <main>
         <div className="welcome-banner">
           {/*<img src={path + '/welcomeBanner.jpg'} className="responsive-img"/> */}
             <div id="sementara" className="container">
             <h3>Welcome or Promo Banner</h3><br/>
-            <h5>insta-story sized banner with buttons:</h5>
+            <h5>insta-story sized banner</h5><br/>
+            <p>possible button:</p>
             <button className="btn scroll-btn waves-effect waves-light" style={{padding: "0 1.8rem"}}
               onClick={this.rushService}
             >
@@ -135,31 +135,12 @@ export default class Home extends React.Component {
             <span>budget</span>
           </div>
 
-          {/*<div className="input-field col s12">
-            <i className="material-icons prefix">search</i>
-            <input type="text" id="autocomplete-input" className="autocomplete" />
-            <label htmlFor="autocomplete-input">Search</label>
-          </div>*/}
-          <div className='col s12'>
-            <a id='search-modal-trigger' className="flex col s12" onClick={this._toggleSearchModal}>
-              <i className="material-icons prefix">search</i>
-              <input value='search / describe your buké here...' disabled style={{height:'2rem', margin:'0'}}/>
-            </a>
-          </div>
 
         </div>
         <div className='back-to-top' onClick={ e =>scrollTo('#sementara', e) }>
           back to top
         </div>
-        <CSSTransition
-          in={this.showSearchModal}
-          timeout={300}
-          classNames='search-modal'
-          unmountOnExit
-        >
-          <SearchModal isVisible={this.showSearchModal} onBackPressed={this._toggleSearchModal} />
-        </CSSTransition>
-
+        </main>
 
         {/*<!-- Popped-up filter -->*/}
         {/*<!-- <div className="row container">

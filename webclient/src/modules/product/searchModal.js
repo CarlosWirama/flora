@@ -1,45 +1,15 @@
 'use strict';
 
 import React from "react";
-import { withRouter } from "react-router-dom";
-import { observable, action } from "mobx";
-import { observer } from "mobx-react";
-// import { getProducts } from "./productController";
-import SearchHeader from "./SearchHeader";
 
-// const SearchModal = props => <SearchModal {...props}/>);
+export default class SearchModal extends React.Component {
 
-@observer
-class SearchModal extends React.Component {
-
-  @observable query = ''
-  @action changeQuery = newQuery => this.query = newQuery
-
-  @action
-  _addQuery = query => {
-    this.searchHeader.focusInput();
-    let re = new RegExp(`\\b${query}\\b`, "i");
-    if (!re.test(this.query)) return this.query += ` ${query} `;
-  }
-
-  _search = () => {
-    let q = this.query.split(/\b/)
-                      .filter( item => /\w/.test(item) )
-                      .join('+');
-    let queryString = q && '?q=' + q;
-    this.props.history.push('/search' + queryString );
-  }
+  _addQuery = this.props.addQuery
+  _search = this.props.search
 
   render () {
     return (
-      <div id='search-modal' style={{minHeight:'100%',maxWidth:'100%'}}>
-        <SearchHeader
-          ref={ e => this.searchHeader = e }
-          query={this.query}
-          onChange={this.changeQuery}
-          onSearch={this._search}
-          onBackPressed={this.props.onBackPressed}
-        />
+      <div id='search-modal'>
         <div className='section container'>
           <div className='search-options'>
             <h6>Flower</h6>
@@ -88,7 +58,4 @@ const CTAButton = props => (
     onClick={props.onClick}
   >{props.text}</button>
 )
-
-export default withRouter(SearchModal);
-
 

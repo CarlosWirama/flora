@@ -14,7 +14,11 @@ export default class SearchResults extends React.Component {
   @observable isLoading = true
 
   componentDidMount() {
-    this._displaySearchResults(this.props.location.search)
+    this._displaySearchResults(this.props.location.search);
+  }
+
+  componentWillReceiveProps(newProps) {
+    this._displaySearchResults(newProps.location.search);
   }
 
   _parseQueryString = qs => {
@@ -33,7 +37,7 @@ export default class SearchResults extends React.Component {
   _displaySearchResults = queryString => {
     let params = this._parseQueryString(queryString);
     let keywords = params.q ? params.q.split('+') : keywords = [];
-    console.log(keywords)
+    this.isLoading = true;
     getProducts(keywords)
       .then( r => this.results = r )
       .catch( e => console.error(e) )
@@ -42,20 +46,13 @@ export default class SearchResults extends React.Component {
 
   render () {
     return (
-      <div>
-        <SearchHeader
-          // ref={ e => this.searchHeader = e }
-          query={this.query}
-          onChange={this.changeQuery}
-          onSearch={this._search}
-          onBackPressed={this.props.history.goBack}
-        />
-        <div id="recommended" className="row container">
-          {/*<div className="col s12 section">
-            <h5>Recommended Buké</h5>
+      <main className='page-container'>
+        <SearchHeader onBackPressed={this.props.history.goBack} />
+        <div className="row container">
+          <div className="col s12 section">
+            <h5>Result for Buké</h5>
             <hr/>
-          </div>*/}
-          
+          </div>
           { this.isLoading ? <h6 className="center-align">Loading...</h6> :
             this.results.map( (product, i) =>
             <div className="col s12 m6 l4" key={i}>
@@ -63,10 +60,8 @@ export default class SearchResults extends React.Component {
                 price={product.price} description={product.description} />
             </div>
           ) }
-
-          {/*<a href="#!" className="right">show more...</a>*/}
         </div>
-      </div>
+      </main>
     )
   }
 }

@@ -1,32 +1,63 @@
 'use strict';
 
 import React from "react";
+import { observable, action } from "mobx";
+import { observer } from "mobx-react";
+import { withRouter } from "react-router-dom";
+import SearchModal from "./searchModal";
+import { CSSTransition } from 'react-transition-group';
 
-export default class SearchHeader extends React.Component {
+@observer
+export default withRouter (
+  class SearchHeader extends React.Component {
 
-  focusInput = () => this.searchInput.focus()
-  _searchInputChange = e => this.props.onChange(e.target.value)
-  _clearQuery = () => { this.props.onChange(''); this.focusInput(); }
+  @observable query = ''
+  @observable showSearchModal = false
+
+  @action _searchInputChange = e => this.query = e.target.value
+  @action _clearQuery = () => { this.query = ''; this.searchInput.focus(); }
+
+  @action _openModal = () => this.showSearchModal = true
+  @action _closeModal = () => this.showSearchModal = false
+  _onBackPressed = this._closeModal //this.props.onBackPressed
+
+  @action
+  _addQuery = query => {
+    let re = new RegExp(`\\b${query}\\b`, "i");
+    if (!re.test(this.query)) this.query += ` ${query} `;
+    this.searchInput.focus();
+  }
+
+  _search = () => {
+    let q = this.query.split(/\b/)
+                      .filter( item => /\w/.test(item) )
+                      .join('+');
+    let queryString = q && '?q=' + q;
+    this._closeModal();
+    this.props.history.push('/search' + queryString );
+  }
 
   render () {
     return (
+      <div id='search-header'>
       <nav className='navbar-fixed z-depth-1'>
-        <div className='nav-wrapper container flex'>
-          <a onClick={this.props.onBackPressed}>
+        <div className='nav-wrapper container flex' style={{zIndex:999, }}>
+          <a onClick={this._onBackPressed}>
             <i className="material-icons icon-btn">arrow_backs</i>
           </a>
           <div className='flex' style={{flex:1}}>
-            <form onSubmit={this.props.onSearch}>
+            <form onSubmit={this._search}>
               <input
                 className='search-input'
                 ref={ e => this.searchInput = e }
                 type='text'
-                value={this.props.query}
+                value={this.query}
+                onFocus={this._openModal}
                 onChange={this._searchInputChange}
-                placeholder='describe your dream buké...'
+                placeholder="I'm looking for..."
               />
             </form>
-            { this.props.query &&
+            { this.query &&
               <div className='waves-effect waves-light center'>
                 <i className="material-icons icon-btn" onClick={this._clearQuery}>close</i>
               </div>
@@ -35,12 +66,24 @@ export default class SearchHeader extends React.Component {
           <div
             className='waves-effect waves-light'
             style={{display:'inline-block', textAlign: 'end'}}
-            onClick={this.props.onSearch}
+            onClick={this._search}
           >
-            <i className="material-icons icon-btn" onClick={this.props.onSearch}>search</i>
+            <i className="material-icons icon-btn" onClick={this._search}>search</i>
           </div>
         </div>
+
       </nav>
+
+      <CSSTransition
+        in={this.showSearchModal}
+        timeout={250}
+        classNames='search-modal'
+        unmountOnExit
+      >
+        <SearchModal onBackPressed={this._toggleSearchModal} addQuery={this._addQuery} search={this._search} />
+      </CSSTransition>
+        
+      </div>
     )
   }
-}
+});

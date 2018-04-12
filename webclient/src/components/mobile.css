@@ -4,7 +4,6 @@
 
 nav {
   background-color: white;
-  color: #c0b283;
 }
 
 header nav a {
@@ -18,7 +17,7 @@ header nav a {
 }
 
 .bottom-nav-page-spare {
-  height: 53
+  height: 53;
 }
 
 header .brand-logo {
@@ -284,6 +283,15 @@ body {
   flex: 1 0 auto;
 }*/
 /* end of fixed footer */
+
+#search-header {
+  position: fixed;
+  width: 100%;
+  z-index: 990;
+}
+#search-header + * {
+  padding-top: 56;
+}
 
 .fullwidth {
   width: 100%;
@@ -598,12 +606,12 @@ nav i.icon-btn {
   color: black;
 }
 
-#search-modal-trigger {
+/*#search-modal-trigger {
   background-color: white;
   border-radius: 14px;
   border-bottom: .5px solid;
   align-items: center;
-}
+}*/
 
 .back-to-top {
   text-align: center;
@@ -625,10 +633,12 @@ nav i.icon-btn {
 }
 
 #search-modal {
-  position: fixed;
-  top: 0;
-  z-index: 1000;
+  position: absolute;
+  top: 56;
+  z-index: 990;
   background-color: white;
+  /*min-height: 100%;*/
+  max-width: 100%;
 }
 
 .wide-cta-btn {
@@ -639,7 +649,7 @@ nav i.icon-btn {
 
 .search-modal-enter {
   opacity: 0.01;
-  transform: translateY(100%);
+  transform: translateY(-100%);
 }
 .search-modal-enter-active {
   opacity: 1;
@@ -652,7 +662,7 @@ nav i.icon-btn {
 }
 .search-modal-exit-active {
   opacity: 0.01;
-  transform: translateY(100%);
+  transform: translateY(-100%);
   transition: all 300ms ease-out;
 }
 
