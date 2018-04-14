@@ -4,7 +4,6 @@
 
 nav {
   background-color: white;
-  color: #c0b283;
 }
 
 header nav a {
@@ -18,7 +17,7 @@ header nav a {
 }
 
 .bottom-nav-page-spare {
-  height: 53
+  height: 53;
 }
 
 header .brand-logo {
@@ -40,11 +39,9 @@ header nav .button-collapse {
 }
 
 .icon-btn {
-  width: 44;
-}
-.icon-btn i {
   padding: 10;
   font-size: 24px;
+  width: 44;
 }
 
 #basket {
@@ -127,6 +124,11 @@ a {
 .fixed-action-btn {
   z-index: 996;
 }
+
+/*button.cta-button {
+  position: fixed;
+  bottom: 0;
+}*/
 
 
 .col.s2point4 {
@@ -281,6 +283,15 @@ body {
   flex: 1 0 auto;
 }*/
 /* end of fixed footer */
+
+#search-header {
+  position: fixed;
+  width: 100%;
+  z-index: 990;
+}
+#search-header + * {
+  padding-top: 56;
+}
 
 .fullwidth {
   width: 100%;
@@ -511,9 +522,10 @@ img.img {
 }
 
 img.img-romantic {
-  background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/bd02d6b0db0eac916a12bef87f8d8d9a/5B3B8A65/t51.2885-15/s640x640/sh0.08/e35/26865879_200824560496652_6082032582898221056_n.jpg);
+  /*background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/bd02d6b0db0eac916a12bef87f8d8d9a/5B3B8A65/t51.2885-15/s640x640/sh0.08/e35/26865879_200824560496652_6082032582898221056_n.jpg);
   background-size: 120%;
-  background-position: -20 -24;
+  background-position: -20 -24;*/
+  background-image: url(https://instagram.fcgk13-1.fna.fbcdn.net/vp/597a6668b6d84a1e084fc4b607b9b1e3/5B54B052/t51.2885-15/e35/29094416_183309499142160_3906555248595959808_n.jpg);
 }
 img.img-graduation {
   background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/87e9fbd845554738508db41356fdff7c/5B351A37/t51.2885-15/e35/13397653_735340299902715_1356368638_n.jpg);
@@ -529,10 +541,13 @@ img.img-decor {
   background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/0b5348971616659930208c801802e46f/5B5A6604/t51.2885-15/s640x640/sh0.08/e35/29403433_612707559072230_6762179983235350528_n.jpg);
 }
 img.img-any-occasion {
-  background-image: url(http://h7.alamy.com/comp/F0HKX1/happy-birthday-message-card-with-gift-box-and-pink-roses-F0HKX1.jpg);
+  /*background-image: url(http://h7.alamy.com/comp/F0HKX1/happy-birthday-message-card-with-gift-box-and-pink-roses-F0HKX1.jpg);
   background-size: cover;
   background-size: 160%;
-  background-position: -73 0px;
+  background-position: -73 0px;*/
+  background-image: url(https://instagram.fcgk13-1.fna.fbcdn.net/vp/9ad34a4c4a36d574db3eded4757c587f/5B7353E0/t51.2885-15/e35/25011859_141553429838166_5364904496235282432_n.jpg);
+  background-size: 108%;
+  background-position-x: center;
 }
 img.img-budget {
   background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/370c430702d759500fe43555e79d6888/5B59D238/t51.2885-15/s640x640/sh0.08/e35/24332420_1902362553410590_4122114318537850880_n.jpg);
@@ -573,8 +588,8 @@ input.search-input:focus {
 }
 
 .color-bubble {
-  height: 32;
-  width: 32;
+  height: 44;
+  width: 44;
   padding: 8;
   border-radius: 50%;
   display: inline-block;
@@ -586,7 +601,68 @@ input.search-input:focus {
   border: 1px solid lightgray;
 }
 
-nav .icon-btn i {
+nav i.icon-btn {
   padding: 0;
   color: black;
 }
+
+/*#search-modal-trigger {
+  background-color: white;
+  border-radius: 14px;
+  border-bottom: .5px solid;
+  align-items: center;
+}*/
+
+.back-to-top {
+  text-align: center;
+  background: lightgray;
+  color: gray;
+}
+
+.add-to-cart-container {
+  float: right;
+  position: relative;
+}
+.add-to-cart-plus {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  font-size: 20px;
+  color: seagreen;
+  text-shadow: 1px 1px #1a462d;
+}
+
+#search-modal {
+  position: absolute;
+  top: 56;
+  z-index: 990;
+  background-color: white;
+  height: calc(100vh - 56px);
+  max-width: 100%;
+}
+
+.wide-cta-btn {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.search-modal-enter {
+  opacity: 0.01;
+  transform: translateY(-100%);
+}
+.search-modal-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all 300ms ease-out;
+}
+.search-modal-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.search-modal-exit-active {
+  opacity: 0.01;
+  transform: translateY(-100%);
+  transition: all 300ms ease-out;
+}
+

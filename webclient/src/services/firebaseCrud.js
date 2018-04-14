@@ -19,11 +19,28 @@ export function add (collectionName, doc) {
 //     });
 // });
 
-export async function get (collectionName) {
-  let ret = [];
-  let querySnapshot = await db.collection(collectionName).get();
-  querySnapshot.forEach( doc => ret.push( doc.data() ) );
-  return ret;
+export async function get (collectionName, conditions = [] ) {
+  try {
+    let query = '';
+    let ret = [];
+    
+    query = db.collection(collectionName);
+    // conditions.forEach( i => query.where('description', '==', false) );
+    // conditions.forEach( i => query.where('tags.ba', '==', false) );
+    conditions.forEach( i => query = query.where(i.key, i.operator, i.value) );
+
+    // console.log('conditions',conditions)
+    // console.log('query',query)
+
+    // query = query.where('tags.ba', '==', false);
+    let querySnapshot = await query.get();
+    // let querySnapshot = await query.where('tags.ba', '==', false).get();
+    querySnapshot.forEach( doc => ret.push( doc.data() ) );
+    return ret;
+  } catch (err) {
+    console.error(err)
+    alert(err)
+  }
 }
 
 
