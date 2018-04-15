@@ -44,6 +44,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "react-card-flip": "^0.2.1",
+    "react-image-magnify": "^2.6.3",
     "react-materialize": "^2.1.4",
     "react-router-dom": "^4.2.2",
     "react-transition-group": "^2.2.1",

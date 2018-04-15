@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReactCardFlip from 'react-card-flip';
 import { number } from '../services/formatter';
+import ReactImageMagnify from 'react-image-magnify';
 
 const path = '/webclient/src/pages/Home';
 
@@ -41,7 +42,23 @@ export default class ProductCard extends React.Component {
       <div className='flip-container'>
         <ReactCardFlip isFlipped={this.state.isFlipped}>
           <div className="card z-depth-3" key='front'>
-            <img src={this.props.img} onClick={this._flipCard} />
+            <ReactImageMagnify
+              // style={{paddingTop:56,width:"100%"}} 
+              smallImage={{
+                src: this.props.img,
+                alt: 'Wristwatch by Ted Baker London',
+                isFluidWidth: true
+              }}
+              largeImage={{
+                src: this.props.img,
+                width: 600,
+                height: 600
+              }}
+              hoverDelayInMs={0}
+              enlargedImagePosition='over'
+              onClick={this._flipCard}
+            />
+            {/*<img src={this.props.img} onClick={this._flipCard} />*/}
             <div>
               <a href="#!"><i className="material-icons icon-btn">favorite_border</i></a>
               <a href="#!" onClick={()=>this._share(this.props)}><i className="material-icons icon-btn">share</i></a>

@@ -76,7 +76,7 @@ export default class Home extends React.Component {
           <div className="shader" />
             <div id="sementara" className="container">
             <h4 style={{position:'absolute', color:'white', top: 300, width:'50vw'}}>
-              Make her special day beautiful
+              Make her<br/>special day<br/>beautiful
             </h4><br/>
             {/*
             <h5>insta-story sized banner</h5><br/>
