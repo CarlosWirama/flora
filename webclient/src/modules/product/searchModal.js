@@ -9,7 +9,7 @@ export default class SearchModal extends React.Component {
 
   render () {
     return (
-      <div id='search-modal'>
+      <main id='search-modal'>
         <div className='section container'>
           <div className='search-options'>
             <h6>Flower</h6>
@@ -48,7 +48,7 @@ export default class SearchModal extends React.Component {
         </div>
 
         <CTAButton text='Search' onClick={this._search} />
-      </div>
+      </main>
     );
   }
 }

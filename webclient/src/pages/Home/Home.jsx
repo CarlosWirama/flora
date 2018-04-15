@@ -2,13 +2,14 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { observable, action } from "mobx";
+import { observable, action, computed } from "mobx";
 import { observer } from "mobx-react";
 import BottomNav from '../../components/pageFrame/BottomNav';
 import ProductCard from '../../components/ProductCard';
 import SearchModal, { SearchModalTrigger } from '../../modules/product/searchModal';
 import { getProducts } from '../../modules/product/productController';
 import SearchHeader from "../../modules/product/SearchHeader";
+import { CSSTransition } from 'react-transition-group';
 
 // const path = '/webclient/src/pages/Home';
 
@@ -25,14 +26,26 @@ export default class Home extends React.Component {
 
   @observable products = [];
   @observable isLoading = false
+  @observable showHeader = false
 
   @action
   componentDidMount() {
+    window.addEventListener('scroll', this.onScroll);
     this.isLoading = true;
     getProducts()
       .then( r => this.products = r )
       .catch( e => alert(e) )
       .finally( () => this.isLoading = false );
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
+  @action
+  onScroll = event => {
+    let {scrollTop} = event.srcElement.body;
+    this.showHeader = scrollTop > window.innerHeight;
   }
 
   rushService = () => alert('not yet implemented: LINE Chat')
@@ -48,14 +61,24 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div className="page-container">
-        <SearchHeader/>
+      <main>
+        <CSSTransition
+          in={this.showHeader}
+          timeout={250}
+          classNames='search-modal'
+          unmountOnExit
+        >
+          <SearchHeader />
+        </CSSTransition>
         {/*<!--  MAIN BANNER -->*/}
-        <main>
         <div className="welcome-banner">
-          {/*<img src={path + '/welcomeBanner.jpg'} className="responsive-img"/> */}
+          <img className=""/>
+          <div className="shader" />
             <div id="sementara" className="container">
-            <h3>Welcome or Promo Banner</h3><br/>
+            <h4 style={{position:'absolute', color:'white', top: 300, width:'50vw'}}>
+              Make her special day beautiful
+            </h4><br/>
+            {/*
             <h5>insta-story sized banner</h5><br/>
             <p>possible button:</p>
             <button className="btn scroll-btn waves-effect waves-light" style={{padding: "0 1.8rem"}}
@@ -76,11 +99,11 @@ export default class Home extends React.Component {
               <i className="material-icons left">favorite_border</i>
               I don't. <b>Recommend</b> Me
             </button>
-          {/*SEMENTARA*/}
             <Link to="/product/add" className="btn red waves-effect waves-light" style={{padding: "0 1.8rem"}}>
               <i className="material-icons left">favorite_border</i>
               Add <b>Product</b>
             </Link>
+          */}
 
             <h6>
               No discount? Yup! We don't mark up our prices nor fool our
@@ -98,7 +121,7 @@ export default class Home extends React.Component {
           
           { this.isLoading ? <h6 className="center-align">Loading...</h6> :
             this.products.map( (product, i) =>
-            <div className="col s12 m6 l4" key={i}>
+            <div className="col s12" key={i}>
               <ProductCard name={product.name} img={product.img} url={product.url}
                 price={product.price} description={product.description} />
             </div>
@@ -110,27 +133,27 @@ export default class Home extends React.Component {
 
         <div id="category" className="row container">
 
-          <div className='home-category col s6 m4'>
+          <div className='home-category col s6'>
             <img className='img img-romantic' />
             <span>romantic</span>
           </div>
-          <div className='home-category col s6 m4'>
+          <div className='home-category col s6'>
             <img className='img img-graduation' />
             <span>graduation</span>
           </div>
-          <div className='home-category col s6 m4'>
+          <div className='home-category col s6'>
             <img className='img img-wedding' />
             <span>wedding</span>
           </div>
-          <div className='home-category col s6 m4'>
+          <div className='home-category col s6'>
             <img className='img img-decor' />
             <span>decoration</span>
           </div>
-          <div className='home-category col s6 m4'>
+          <div className='home-category col s6'>
             <img className='img img-any-occasion' />
             <span>any occasion</span>
           </div>
-          <div className='home-category col s6 m4'>
+          <div className='home-category col s6'>
             <img className='img img-budget' />
             <span>budget</span>
           </div>
@@ -140,7 +163,6 @@ export default class Home extends React.Component {
         <div className='back-to-top' onClick={ e =>scrollTo('#sementara', e) }>
           back to top
         </div>
-        </main>
 
         {/*<!-- Popped-up filter -->*/}
         {/*<!-- <div className="row container">
@@ -236,7 +258,7 @@ export default class Home extends React.Component {
           <BottomNav />
         </div>*/}
 
-      </div>
+      </main>
     );
   }
 }

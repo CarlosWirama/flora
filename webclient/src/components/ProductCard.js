@@ -3,7 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ReactCardFlip from 'react-card-flip';
-const number = int => int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+import { number } from '../services/formatter';
 
 const path = '/webclient/src/pages/Home';
 
@@ -83,7 +83,7 @@ export default class ProductCard extends React.Component {
                 <span>{price}</span>
               </div>
               <div className='' style={{alignItems:'center'}}>
-                <Link to="/product" className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>
+                <Link to={{pathname:'/product', state:{...this.props}}} className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>
                   <i className="material-icons left">send</i>
                   <span>BOOK</span>
                 </Link>
@@ -92,6 +92,32 @@ export default class ProductCard extends React.Component {
 
           </div>
         </ReactCardFlip>
+
+        <div className="card z-depth-3" style={{visibility:'hidden'}}>
+          <img src={this.props.img} onClick={this._flipCard} />
+          <div>
+            <a href="#!"><i className="material-icons icon-btn">favorite_border</i></a>
+            <a href="#!" onClick={()=>this._share(this.props)}><i className="material-icons icon-btn">share</i></a>
+            <a href="#!" onClick={this._flipCard} className='add-to-cart-container'>
+              <i className="material-icons icon-btn green-text green-lighten-3">shopping_basket</i>
+              <span className='add-to-cart-plus'>+</span>
+            </a>
+          </div>
+          <div className="divider" />
+          <div style={{display:'flex', justifyContent: 'space-between'}}  onClick={this._flipCard}>
+            {/*<div className='left'>*/}
+            <div>
+              <h5>{this.props.name}</h5>
+              <span>{price}</span>
+            </div>
+            {/*<Link to="/product" className="waves-effect waves-light btn brown right" style={{marginTop:15,marginLeft: 5,paddingTop:4, width:'100%'}}>
+              <i className="material-icons left">send</i>
+              <span>BOOK</span>
+            </Link>
+            <div style={{clear:'left'}}/>*/}
+         </div>
+        </div>
+
       </div>
     );
   }

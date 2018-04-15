@@ -40,7 +40,7 @@ export default withRouter (
 
   render () {
     return (
-      <div id='search-header'>
+      <div id='search-header' style={this.props.style}>
         <nav className='navbar-fixed z-depth-1'>
           <div className='nav-wrapper container flex' style={{zIndex:999, }}>
             <a onClick={this._onBackPressed}>

@@ -136,12 +136,31 @@ a {
 }
 
 .welcome-banner {
-  background-color: lightgreen;
+  /*background-color: lightgreen;*/
+  
+
   height: 100%;
   /*height: calc( 100% - 53px - 56px );*/
   /*height: calc( 100% - 53px );*/
   overflow: hidden;
   margin-bottom: 20;
+}
+.welcome-banner > img {
+  background-image: url(https://scontent-sin6-1.cdninstagram.com/vp/312f9da00415d2dc14ee22bb92aef6a3/5B5C3852/t51.2885-15/e35/28763906_414755895638730_8330088108519325696_n.jpg);
+  background-size: cover;
+  background-position: -110px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: absolute;
+}
+.welcome-banner > .shader {
+  background-color: black;
+  opacity: .4;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
 }
 
 /*product-card*/
@@ -159,13 +178,9 @@ a {
 }
 
 /* TABLET */
-@media only screen and (min-width: 601px) {
-  .flip-container {
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+ /* .flip-container {
     height: 60vw;
-  }
-/*  .card {
-    margin-left: .5rem;
-    margin-right: .5rem;
   }*/
 }
 
@@ -178,16 +193,16 @@ a {
     overflow: hidden;
     max-width: 120;
   }
-  .flip-container {
+ /* .flip-container {
     height: 35vw;
-  }
+  }*/
 }
 
 /* SMARTPHONE */
 @media only screen and (max-width: 600px) {
-  .flip-container {
+/*  .flip-container {
     height: 130vw;
-  }
+  }*/
 /*.card {
     width: 100%;
     margin-left: auto;
@@ -195,6 +210,10 @@ a {
     right: auto;
   } */
 }
+/*.flip-container {
+  padding-top: 100%;
+}*/
+
 
 .btn {
   min-height: 44px
@@ -273,7 +292,7 @@ a {
 
 
 /* fixed footer*/
-body {
+main {
   /*display: flex;
   min-height: 100vh;
   flex-direction: column;*/
@@ -288,9 +307,6 @@ body {
   position: fixed;
   width: 100%;
   z-index: 990;
-}
-#search-header + * {
-  padding-top: 56;
 }
 
 .fullwidth {
@@ -596,10 +612,9 @@ input.search-input:focus {
   margin-right: 10;
   vertical-align: baseline;
 }
-
-.color-bubble.white {
+/*.color-bubble.white {
   border: 1px solid lightgray;
-}
+}*/
 
 nav i.icon-btn {
   padding: 0;
@@ -636,7 +651,6 @@ nav i.icon-btn {
   position: absolute;
   top: 56;
   z-index: 990;
-  background-color: white;
   height: calc(100vh - 56px);
   max-width: 100%;
 }
@@ -664,5 +678,13 @@ nav i.icon-btn {
   opacity: 0.01;
   transform: translateY(-100%);
   transition: all 300ms ease-out;
+}
+
+main, #search-header,
+.welcome-banner > img,
+.welcome-banner .shader,
+.wide-cta-btn {
+  max-width: 30rem;
+  margin: 0 auto;
 }
 
