@@ -10,8 +10,8 @@ import ReactImageMagnify from 'react-image-magnify';
 
 export default class ProductCard extends React.Component {
 
-  constructor (props) {
-    super(props)
+  constructor () {
+    super()
     this.state = {
       isFlipped: false,
     };
@@ -42,22 +42,6 @@ export default class ProductCard extends React.Component {
       <div className='flip-container'>
         <ReactCardFlip isFlipped={this.state.isFlipped}>
           <div className="card z-depth-3" key='front'>
-            {/*<ReactImageMagnify
-              // style={{paddingTop:56,width:"100%"}} 
-              smallImage={{
-                src: this.props.img,
-                alt: 'Wristwatch by Ted Baker London',
-                isFluidWidth: true
-              }}
-              largeImage={{
-                src: this.props.img,
-                width: 600,
-                height: 600
-              }}
-              hoverDelayInMs={0}
-              enlargedImagePosition='over'
-              onClick={this._flipCard}
-            />*/}
             <img src={this.props.img} onClick={this._flipCard} />
             <div>
               <a href="#!"><i className="material-icons icon-btn">favorite_border</i></a>
