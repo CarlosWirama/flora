@@ -127,6 +127,19 @@ export default class Home extends React.Component {
             </div>
           ) }
 
+
+          <div className="col s12 section">
+            <h5>Graduation</h5>
+            <hr/>
+          </div>
+          { this.isLoading ? <h6 className="center-align">Loading...</h6> :
+            this.products.map( (product, i) =>
+            <div className="col s6" key={i}>
+              <ProductCard name={product.name} img={product.img} url={product.url}
+                price={product.price} description={product.description} />
+            </div>
+          ) }
+
           {/*<a href="#!" className="right">show more...</a>*/}
 
         </div>

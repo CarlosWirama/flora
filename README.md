@@ -11,6 +11,12 @@ npm install
 npm start
 ```
 
+### Deploy Production
+- change index.html script from `src="/bundle.js"` to `src="/dist/bundle.js"`
+- open terminal:
+	$ ./node_modules/.bin/webpack — config webpack.config.js
+	$ sudo firebase deploy
+
 Browser should open automatically. Otherwise, navigate to the URL reported in the terminal
 
 ### Credits
