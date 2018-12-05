@@ -1,14 +1,10 @@
 'use strict';
-
 import React from "react";
 import { Link } from "react-router-dom";
 import ReactCardFlip from 'react-card-flip';
 const number = int => int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const path = '/webclient/src/pages/Home';
-
 export default class ProductCard extends React.Component {
-
   constructor (props) {
     super(props)
     this.state = {
@@ -18,30 +14,15 @@ export default class ProductCard extends React.Component {
 
   _flipCard = () => this.setState({isFlipped: !this.state.isFlipped})
 
-  _share = (product = this.props) => {
-    if (navigator.share) {
-      navigator.share({
-        title: product.name,
-        text: 'Check out Web Fundamentals — it rocks!',
-        url: 'https://flora-247.firebaseapp.com/' + product.url,
-      }).then( () => console.log('Successful share') )
-        .catch( error => console.log('Error sharing', error));
-    } else {
-      ( url => prompt(
-        "Share product link", "flora-247.firebaseapp.com" + url
-      ) ) (product.url);
-    }
-  }
-
-  _mouseMove = e => {}//console.log(e.clientX)
-
   render () {
-    let price = 'IDR ' + number(this.props.price);
+    const { price, name, img, description } = this.props;
+    const priceStr = 'IDR ' + number(price);
     return (
       <div className='flip-container'>
-        <ReactCardFlip isFlipped={this.state.isFlipped}>
+        <ReactCardFlip isFlipped={this.state.isFlipped} style={{userSelect: 'none'}}>
           <div className="card z-depth-3" key='front'>
-            <img src={this.props.img} onClick={this._flipCard} />
+            <img src={img} onClick={this._flipCard} />
+            {/*
             <div>
               <a href="#!"><i className="material-icons icon-btn">favorite_border</i></a>
               <a href="#!" onClick={()=>this._share(this.props)}><i className="material-icons icon-btn">share</i></a>
@@ -51,43 +32,34 @@ export default class ProductCard extends React.Component {
               </a>
             </div>
             <div className="divider" />
-            <div style={{display:'flex', justifyContent: 'space-between'}}  onClick={this._flipCard}>
-              {/*<div className='left'>*/}
-              <div>
-                <h5>{this.props.name}</h5>
-                <span>{price}</span>
-              </div>
-              {/*<Link to="/product" className="waves-effect waves-light btn brown right" style={{marginTop:15,marginLeft: 5,paddingTop:4, width:'100%'}}>
-                <i className="material-icons left">send</i>
-                <span>BOOK</span>
-              </Link>
-              <div style={{clear:'left'}}/>*/}
+            */}
+            <div style={{textAlign:'right', paddingRight:5}}  onClick={this._flipCard}>
+            {/* <div style={{display:'flex', justifyContent: 'space-between'}}  onClick={this._flipCard}> */}
+              <h5>{name}</h5><span>{priceStr}</span>
            </div>
           </div>
 
 
-          <div className="card z-depth-3" key='back' onClick={this._flipCard} onMouseMove={this._mouseMove}>
+          <div className="card z-depth-3" key='back' onClick={this._flipCard}>
             <div>
-              <img className='flipped' src={this.props.img} onClick={this._flipCard} />
-              <div style={{position:'absolute', top:0}}>
-                <p style={{width:'100%'}}>
-                  {this.props.description}
+              <img className='flipped' src={img} onClick={this._flipCard} />
+              <div style={{position:'absolute', top:0, padding:'.8rem', marginRight:'.8rem'}}>
+                <div style={{display:'flex', justifyContent:'space-between', alignItems: 'baseline'}}>
+                  <div style={{width:'67%'}}>
+                    <h5 className="truncate">{name}</h5>
+                  </div>
+                  <span>{priceStr}</span>
+                </div>
+                <p style={{width:'100%', textAlign: 'justify'}}>
+                  {description}
                 </p>
               </div>
             </div>
-            <a href="#!"><i className="material-icons icon-btn">arrow_backs</i></a>
-            <div className="divider" />
-            <div style={{ display:'flex', justifyContent:'space-between'}}>
-              <div style={{width:'47%'}}>
-                <h5 className="truncate">{this.props.name}</h5>
-                <span>{price}</span>
-              </div>
-              <div className='' style={{alignItems:'center'}}>
-                <Link to="/product" className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>
-                  <i className="material-icons left">send</i>
-                  <span>BOOK</span>
-                </Link>
-              </div>
+            <div className='' style={{alignItems:'center'}}>
+              <Link to="/product" className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>
+                <i className="material-icons left">send</i>
+                <span>BOOK</span>
+              </Link>
             </div>
 
           </div>
@@ -96,3 +68,18 @@ export default class ProductCard extends React.Component {
     );
   }
 }
+
+  // _share = (product = this.props) => {
+  //   if (navigator.share) {
+  //     navigator.share({
+  //       title: product.name,
+  //       text: 'Check out Web Fundamentals — it rocks!',
+  //       url: 'https://flora-247.firebaseapp.com/' + product.url,
+  //     }).then( () => console.log('Successful share') )
+  //       .catch( error => console.log('Error sharing', error));
+  //   } else {
+  //     ( url => prompt(
+  //       "Share product link", "flora-247.firebaseapp.com" + url
+  //     ) ) (product.url);
+  //   }
+  // }

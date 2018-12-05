@@ -55,9 +55,9 @@ export default class Home extends React.Component {
         <div className="welcome-banner">
           {/*<img src={path + '/welcomeBanner.jpg'} className="responsive-img"/> */}
             <div id="sementara" className="container">
-            <h3>Welcome or Promo Banner</h3><br/>
-            <h5>insta-story sized banner</h5><br/>
-            <p>possible button:</p>
+            <h3>Make her special day beautiful</h3><br/>
+            <h5>put insta-story sized banner here</h5><br/>
+            <p>ignore these buttons:</p>
             <button className="btn scroll-btn waves-effect waves-light" style={{padding: "0 1.8rem"}}
               onClick={this.rushService}
             >
@@ -81,11 +81,6 @@ export default class Home extends React.Component {
               <i className="material-icons left">favorite_border</i>
               Add <b>Product</b>
             </Link>
-
-            <h6>
-              No discount? Yup! We don't mark up our prices nor fool our
-              customers with fake discount. They're just too... precious!
-            </h6>
           </div>
         </div>
 
