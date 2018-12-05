@@ -13,6 +13,10 @@ firebase.initializeApp({
 });
 
 // Initialize Cloud Firestore through Firebase
-const db = firebase.firestore();
+export const db = firebase.firestore();
+db.settings({
+	timestampsInSnapshots: true,
+});
 
-export default db;
+// Initialize Cloud Storage for images / media
+export const storage = firebase.storage();

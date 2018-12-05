@@ -4,10 +4,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { observable, action } from "mobx";
 import { observer } from "mobx-react";
-// const path = '/webclient/src/pages/Product';
 
 @observer
-class Delivery extends React.Component {
+class DeliveryForm extends React.Component {
 
   @observable address = ""
   @observable isRecipient = false
@@ -71,11 +70,14 @@ class Delivery extends React.Component {
             <label htmlFor="recipients-phone">Recipient's Phone</label>
           </div>
           <div className="input-field col s6">
+            <label htmlFor="deliveryDate">Delivery Date</label>
+            <input type="date" name="deliveryDate" id="deliveryDate"/>
+          </div>
+          <div className="input-field col s6">
             <label htmlFor="deliveryHour">Delivery Hour</label>
             <input type="time" name="deliveryHour" id="deliveryHour"/>
           </div>
-          
-          
+
           <div className="col s12">
             <input type="checkbox" className="filled-in" id="instruction1" name=""/>
             <label htmlFor="instruction1" style={{fontSize: '.9rem !important', lineHeight: 1.7}}>
@@ -101,11 +103,13 @@ class Delivery extends React.Component {
           </div> -->*/}
 
           <div className="col s12" style={{marginTop: 10}}>
-            <input onClick={this._onSubmit} type="submit" className="btn btn-large red fullwidth waves-effect waves-light" value="add to basket"/>
+            <Link to={"/form/customer"} className="btn btn-large red fullwidth waves-effect waves-light" >
+              add to basket
+            </Link>
           </div>
         </div>
       </form>
     );
   }
 }
-export default Delivery;
+export default DeliveryForm;

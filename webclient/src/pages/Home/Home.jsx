@@ -63,19 +63,19 @@ export default class Home extends React.Component {
     return (
       <main>
         <Header showHeader={this.showHeader} />
-        {/*<!--  MAIN BANNER -->*/}
         <Banner/>
-        <RecommendedList products={this.products} isLoading={this.isLoading} />
-        <ProductList products={this.products} isLoading={this.isLoading} />
-        <Category/>
-        <div className='back-to-top' onClick={ e =>scrollTo('#sementara', e) }>
-          back to top
+        <div className="container">
+          {/*<!--  MAIN BANNER -->*/}
+          <RecommendedList products={this.products} isLoading={this.isLoading} />
+          <ProductList products={this.products} isLoading={this.isLoading} />
+          <Category/>
+          <div className='back-to-top' onClick={ e =>scrollTo('#sementara', e) }>
+            back to top
+          </div>
+          {/*<div className="hide-on-large-only">
+            <BottomNav />
+          </div>*/}
         </div>
-
-        {/*<div className="hide-on-large-only">
-          <BottomNav />
-        </div>*/}
-
       </main>
     );
   }
@@ -176,10 +176,10 @@ const Banner = () =>
       </Link>
     */}
 
-      <h6>
+      {/*<h6>
         No discount? Yup! We don't mark up our prices nor fool our
         customers with fake discount. They're just too... precious!
-      </h6>
+      </h6>*/}
     </div>
   </div>
 

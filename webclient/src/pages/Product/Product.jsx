@@ -4,7 +4,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { number } from '../../services/formatter';
 import SearchHeader from "../../modules/product/SearchHeader";
-import ReactImageMagnify from 'react-image-magnify';
 
 const path = '/webclient/src/pages/Product';
 
@@ -15,8 +14,7 @@ export default function Product(props) {
     <main>
       <SearchHeader />
       <div style={{paddingTop:56}} />
-      <ReactImageMagnify
-        // style={{marginTop:56,width:"100%"}} 
+      {/*<ReactImageMagnify
         smallImage={{
           src: details.img,
           alt: 'Wristwatch by Ted Baker London',
@@ -29,7 +27,7 @@ export default function Product(props) {
         }}
         hoverDelayInMs={0}
         enlargedImagePosition='over'
-      />
+      />*/}
       {/*<img src={details.img} style={{paddingTop:56,width:"100%"}} className="z-depth-1" />*/}
 
       <div className="container" style={{paddingBottom: 30}}>

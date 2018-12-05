@@ -4,7 +4,8 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from '../pages/Home/Home';
 import Product from '../pages/Product/Product';
-import Delivery from '../modules/preorder/Delivery';
+import DeliveryForm from '../modules/preorder/form/DeliveryForm';
+import CustomerForm from '../modules/preorder/form/CustomerForm';
 import AddProduct from '../modules/product/AddProduct';
 import SearchResults from '../modules/product/SearchResults';
 
@@ -20,7 +21,8 @@ class MainFrame extends React.Component {
           <Route path="/product/add" component={AddProduct} />
           <Route path="/product" component={Product} />
           <Route path="/search" component={SearchResults} />
-          {/*<Route path="/delivery" component={Delivery} />*/}
+          <Route path="/form/delivery" component={DeliveryForm} />
+          <Route path="/form/customer" component={CustomerForm} />
           <Route component={NotFound}/>
         </Switch>
           {/*<!-- Fixed bottom btn -->*/}

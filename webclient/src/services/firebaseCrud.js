@@ -1,7 +1,6 @@
 'use strict';
 
-// const {db} = global;
-import db from './initializeFirebase';
+import { db } from './initializeFirebase';
 
 export function add (collectionName, doc) {
 	return db.collection(collectionName).add(doc)
