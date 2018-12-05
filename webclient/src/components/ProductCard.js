@@ -34,7 +34,6 @@ export default class ProductCard extends React.Component {
             <div className="divider" />
             */}
             <div style={{textAlign:'right', paddingRight:5}}  onClick={this._flipCard}>
-            {/* <div style={{display:'flex', justifyContent: 'space-between'}}  onClick={this._flipCard}> */}
               <h5>{name}</h5><span>{priceStr}</span>
            </div>
           </div>
@@ -45,7 +44,7 @@ export default class ProductCard extends React.Component {
               <img className='flipped' src={img} onClick={this._flipCard} />
               <div style={{position:'absolute', top:0, padding:'.8rem', marginRight:'.8rem'}}>
                 <div style={{display:'flex', justifyContent:'space-between', alignItems: 'baseline'}}>
-                  <div style={{width:'67%'}}>
+                  <div style={{width:'66%'}}>
                     <h5 className="truncate">{name}</h5>
                   </div>
                   <span>{priceStr}</span>
@@ -56,7 +55,7 @@ export default class ProductCard extends React.Component {
               </div>
             </div>
             <div className='' style={{alignItems:'center'}}>
-              <Link to="/product" className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>
+              <Link to="/form/delivery" className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>
                 <i className="material-icons left">send</i>
                 <span>BOOK</span>
               </Link>
