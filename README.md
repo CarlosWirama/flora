@@ -19,6 +19,10 @@ npm start
 	$ ./node_modules/.bin/webpack — config webpack.config.js
 	$ sudo firebase deploy
 
+(you may install and login to firebase first)
+	$ npm install -g firebase-tools
+	$ firebase login:ci --interactive
+
 Browser should open automatically. Otherwise, navigate to the URL reported in the terminal
 
 ### Credits
