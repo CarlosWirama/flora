@@ -70,7 +70,7 @@ export default class ProductCard extends React.Component {
               </div>
             </div>
             <div className='' style={{alignItems:'center'}}>
-              <Link to="/form/delivery" className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>
+              <Link to="/form/card" className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>
                 <i className="material-icons left">send</i>
                 <span>BOOK</span>
               </Link>

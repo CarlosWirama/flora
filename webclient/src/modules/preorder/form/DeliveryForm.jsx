@@ -104,7 +104,7 @@ class DeliveryForm extends React.Component {
 
           <div className="col s12" style={{marginTop: 10}}>
             <Link to={"/form/customer"} className="btn btn-large red fullwidth waves-effect waves-light" >
-              add to basket
+              continue
             </Link>
           </div>
         </div>

@@ -6,6 +6,7 @@ import Home from '../pages/Home/Home';
 import Product from '../pages/Product/Product';
 import DeliveryForm from '../modules/preorder/form/DeliveryForm';
 import CustomerForm from '../modules/preorder/form/CustomerForm';
+import CardForm from '../modules/preorder/form/CardForm';
 import AddProduct from '../modules/product/AddProduct';
 import SearchResults from '../modules/product/SearchResults';
 
@@ -21,6 +22,7 @@ class MainFrame extends React.Component {
           <Route path="/product/add" component={AddProduct} />
           <Route path="/product" component={Product} />
           <Route path="/search" component={SearchResults} />
+          <Route path="/form/card" component={CardForm} />
           <Route path="/form/delivery" component={DeliveryForm} />
           <Route path="/form/customer" component={CustomerForm} />
           <Route component={NotFound}/>
