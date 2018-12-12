@@ -1,107 +1,71 @@
 'use strict';
 import React from "react";
 import { Link } from "react-router-dom";
-import ReactCardFlip from 'react-card-flip';
+// import Lightbox from 'react-image-lightbox';
+// import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 import { number } from '../services/formatter';
 
 export default class ProductCard extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      isFlipped: false,
+      isLightboxVisible: false,
     };
+    this.toggleLightboxVisibility = this.toggleLightboxVisibility.bind(this);
   }
 
-  _flipCard = () => this.setState({isFlipped: !this.state.isFlipped})
-
-  _share = (product = this.props) => {
-    if (navigator.share) {
-      navigator.share({
-        title: product.name,
-        text: 'Buké Studio for fresh flower bouquet',
-        url: 'https://flora-247.firebaseapp.com/' + product.url,
-      }).then( () => console.log('Successful share') )
-        .catch( error => console.log('Error sharing', error));
-    } else {
-      ( url => prompt(
-        "Share product link", "flora-247.firebaseapp.com" + url
-      ) ) (product.url);
-    }
+  toggleLightboxVisibility() {
+    this.setState({isLightboxVisible: !this.state.isLightboxVisible});
   }
+
+  // _share = (product = this.props) => {
+  //   if (navigator.share) {
+  //     navigator.share({
+  //       title: product.name,
+  //       text: 'Buké Studio for fresh flower bouquet',
+  //       url: 'https://flora-247.firebaseapp.com/' + product.url,
+  //     }).then( () => console.log('Successful share') )
+  //       .catch( error => console.log('Error sharing', error));
+  //   } else {
+  //     ( url => prompt(
+  //       "Share product link", "flora-247.firebaseapp.com" + url
+  //     ) ) (product.url);
+  //   }
+  // }
 
   render () {
     const { price, name, img, description } = this.props;
     const priceStr = 'IDR ' + number(price);
     return (
-      <div className='flip-container'>
-        <ReactCardFlip isFlipped={this.state.isFlipped} style={{userSelect: 'none'}}>
-          <div className="card z-depth-3" key='front'>
-            <img src={img} onClick={this._flipCard} />
-            {/*
-            <div>
-              <a href="#!"><i className="material-icons icon-btn">favorite_border</i></a>
-              <a href="#!" onClick={()=>this._share(this.props)}><i className="material-icons icon-btn">share</i></a>
-              <a href="#!" onClick={this._flipCard} className='add-to-cart-container'>
-                <i className="material-icons icon-btn green-text green-lighten-3">shopping_basket</i>
-                <span className='add-to-cart-plus'>+</span>
-              </a>
-            </div>
-            <div className="divider" />
-            */}
-            <div style={{textAlign:'right', paddingRight:5}}  onClick={this._flipCard}>
-              <h5>{name}</h5><span>{priceStr}</span>
-           </div>
+      <div className='flip-container' style={{userSelect: 'none'}}>
+        <div className="card z-depth-3">
+          <img src={img} onClick={() => this.toggleLightboxVisibility()} />
+          <div style={{paddingLeft:5}}>
+            <h5>{name}</h5><span>{priceStr}</span>
           </div>
-
-
-          <div className="card z-depth-3" key='back' onClick={this._flipCard}>
-            <div>
-              <img className='flipped' src={img} onClick={this._flipCard} />
-              <div style={{position:'absolute', top:0, padding:'.8rem', marginRight:'.8rem'}}>
-                <div style={{display:'flex', justifyContent:'space-between', alignItems: 'baseline'}}>
-                  <div style={{width:'66%'}}>
-                    <h5 className="truncate">{name}</h5>
-                  </div>
-                  <span>{priceStr}</span>
-                </div>
-                <p style={{width:'100%', textAlign: 'justify'}}>
-                  {description}
-                </p>
-              </div>
-            </div>
-            <div className='' style={{alignItems:'center'}}>
-              <Link to="/form/card" className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>
-                <i className="material-icons left">send</i>
-                <span>BOOK</span>
-              </Link>
-            </div>
-
-          </div>
-        </ReactCardFlip>
-
-        <div className="card z-depth-3" style={{visibility:'hidden'}}>
-          <img src={this.props.img} onClick={this._flipCard} />
-          <div>
-            <a href="#!"><i className="material-icons icon-btn">favorite_border</i></a>
-            <a href="#!" onClick={()=>this._share(this.props)}><i className="material-icons icon-btn">share</i></a>
-            <a href="#!" onClick={this._flipCard} className='add-to-cart-container'>
-              <i className="material-icons icon-btn green-text green-lighten-3">shopping_basket</i>
-              <span className='add-to-cart-plus'>+</span>
-            </a>
-          </div>
-          <div className="divider" />
-          <div style={{display:'flex', justifyContent: 'space-between'}}  onClick={this._flipCard}>
-            <div>
-              <h5>{this.props.name}</h5>
-              <span>{price}</span>
-            </div>
-            {/*<Link to="/product" className="waves-effect waves-light btn brown right" style={{marginTop:15,marginLeft: 5,paddingTop:4, width:'100%'}}>
-              <i className="material-icons left">send</i>
-              <span>BOOK</span>
-            </Link>
-            <div style={{clear:'left'}}/>*/}
-         </div>
+          <Link to="/form/card" className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>
+            BOOK
+          </Link>
         </div>
+
+        {isLightboxVisible && (
+          <Lightbox
+            mainSrc={images[photoIndex]}
+            nextSrc={images[(photoIndex + 1) % images.length]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            onCloseRequest={() => this.toggleLightboxVisibility()}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + images.length - 1) % images.length,
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % images.length,
+              })
+            }
+          />
+        )}
 
       </div>
     );
