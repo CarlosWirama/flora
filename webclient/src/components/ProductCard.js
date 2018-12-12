@@ -48,7 +48,7 @@ export default class ProductCard extends React.Component {
           </Link>
         </div>
 
-        {isLightboxVisible && (
+        { /*isLightboxVisible && (
           <Lightbox
             mainSrc={images[photoIndex]}
             nextSrc={images[(photoIndex + 1) % images.length]}
@@ -65,7 +65,7 @@ export default class ProductCard extends React.Component {
               })
             }
           />
-        )}
+          ) */}
 
       </div>
     );

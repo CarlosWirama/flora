@@ -32,7 +32,7 @@ export default class CardForm extends React.Component {
           </div>
           <div className="col s12" style={{marginTop: 10}}>
             <Link to={"/form/delivery"} className="btn btn-large red fullwidth waves-effect waves-light" >
-              continue
+              {this.state.cardContent ? `wrap it!` : `I'll decide later`}
             </Link>
           </div>
         </div>

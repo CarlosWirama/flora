@@ -290,14 +290,6 @@ a {
   /*border: 1px solid grey;*/
 }
 
-
-/* fixed footer*/
-main {
-  /*display: flex;
-  min-height: 100vh;
-  flex-direction: column;*/
-  background: linear-gradient(to right, #d9d9d9, #f2f2f2);
-}
 /*main {
   flex: 1 0 auto;
 }*/
