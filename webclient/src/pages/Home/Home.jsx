@@ -10,6 +10,7 @@ import SearchModal, { SearchModalTrigger } from '../../modules/product/searchMod
 import { getProducts } from '../../modules/product/productController';
 import SearchHeader from "../../modules/product/SearchHeader";
 import { CSSTransition } from 'react-transition-group';
+import PageHeader from '../../components/pageFrame/PageHeader';
 
 // const path = '/webclient/src/pages/Home';
 
@@ -23,10 +24,24 @@ function scrollTo(id , event) {
 
 @observer
 export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onScroll = this.onScroll.bind(this);
+    this.state = {
+      headerOpacity: 0,
+    };
+  }
 
   @observable products = [];
   @observable isLoading = false
-  @observable showHeader = false
+  // @observable showHeader = false
+
+  
+  onScroll(event) {
+    const { scrollTop } = event.srcElement.body;
+    const headerOpacity = (scrollTop * 2 / window.innerHeight) - 1;
+    this.setState({headerOpacity});
+  }
 
   @action
   componentDidMount() {
@@ -42,11 +57,6 @@ export default class Home extends React.Component {
     window.removeEventListener('scroll', this.onScroll);
   }
 
-  @action
-  onScroll = event => {
-    let {scrollTop} = event.srcElement.body;
-    this.showHeader = scrollTop > window.innerHeight;
-  }
 
   rushService = () => alert('not yet implemented: LINE Chat')
   // getInitialState = () => {
@@ -62,7 +72,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <main>
-        <Header showHeader={this.showHeader} />
+        <PageHeader opacity={this.state.headerOpacity} {...this.props}></PageHeader>
         <Banner/>
         <div className="container">
           {/*<!--  MAIN BANNER -->*/}
