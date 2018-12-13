@@ -14,9 +14,9 @@ firebase.initializeApp({
 
 // Initialize Cloud Firestore through Firebase
 export const db = firebase.firestore();
-// db.settings({
-// 	timestampsInSnapshots: true,
-// });
+db.settings({
+	timestampsInSnapshots: true,
+});
 
 // Initialize Cloud Storage for images / media
 export const storage = firebase.storage();

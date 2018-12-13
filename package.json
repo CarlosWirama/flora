@@ -45,6 +45,7 @@
     "passport-local": "^1.0.0",
     "react-materialize": "^2.5.1",
     "react-router-dom": "^4.3.1",
+    "react-router-tabs": "^1.2.0",
     "react-transition-group": "^2.5.1",
     "styled-components": "^4.1.2",
     "webpack": "^3.12.0",
