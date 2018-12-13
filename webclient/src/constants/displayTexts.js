@@ -7,6 +7,6 @@ export const Common = {
 };
 
 export const Form = {
-  WRAP_IT: 'kirim!',
-  ILL_DECIDE_LATER: 'menyusul',
+  SEND: 'kirim!', //wrap it!
+  SKIP: 'menyusul', //ILL_DECIDE_LATER
 };

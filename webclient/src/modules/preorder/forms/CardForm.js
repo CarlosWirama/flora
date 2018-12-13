@@ -9,7 +9,7 @@ export default class CardForm extends React.Component {
     super(props);
     this.state = {
       cardContent: '',
-    }
+    };
   }
 
   _onInputChange = e => {
@@ -29,12 +29,12 @@ export default class CardForm extends React.Component {
           <h5>{Common.CARD}</h5>
 
           <div className="input-field col s12">
-            <textarea name="cardContent" className="materialize-textarea"
+            <textarea name="cardContent" className="materialize-textarea" autoFocus
             value={this.state.cardContent} onChange={this._onInputChange} />
           </div>
           <div className="col s12" style={{marginTop: 10}}>
             <Link to={"/form/delivery"} className="btn btn-large red fullwidth waves-effect waves-light" >
-              {this.state.cardContent ? Form.WRAP_IT : Form.ILL_DECIDE_LATER}
+              {this.state.cardContent ? Form.SEND : Form.SKIP}
             </Link>
           </div>
         </div>

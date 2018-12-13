@@ -37,7 +37,7 @@ class DeliveryForm extends React.Component {
           </div>
           <div className="input-field col s12">
             <textarea id="address" name="address" className="materialize-textarea" required="required"
-            value={this.address} onChange={this._inputChange} />
+            value={this.address} onChange={this._inputChange} autoFocus />
             <label htmlFor="address">Address</label>
           </div>
           <div className="col s6">
