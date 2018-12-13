@@ -9,15 +9,15 @@ const tabsStyle = {
   display: 'flex',
 };
 
-function FormPagesHeader() {
+function FormPagesHeader ({ location: {pathname} }) {
   return (
     <header className="navbar-fixed">
       <nav>
         <RoutedTabs className="nav-wrapper container" style={tabsStyle}>
-          <StepButton url="/" text={Common.BOUQUET} />
-          <StepButton url="/form/card" text={Common.CARD} />
-          <StepButton url="/form/delivery" text={Common.DELIVERY} />
-          <StepButton url="/form/customer" text={Common.CUSTOMER} />
+          <StepButton url="/" text={Common.BOUQUET} active />
+          <StepButton url="/form/card" text={Common.CARD}  active={pathname == '/form/card'} />
+          <StepButton url="/form/delivery" text={Common.DELIVERY}  active={pathname == '/form/delivery'} />
+          <StepButton url="/form/customer" text={Common.CUSTOMER}  active={pathname == '/form/customer'} />
         </RoutedTabs>
       </nav>
     </header>
@@ -26,9 +26,9 @@ function FormPagesHeader() {
 
 export default withRouter(props => <FormPagesHeader {...props}/>);
 
-function StepButton({url, text}) {
+function StepButton({url, text, active}) {
   return (
-    <NavTab to={url} style={{flex:1}}>
+    <NavTab to={url} style={{flex:1, ...active ? {backgroundColor:'black'}:{}}}>
       {text}
     </NavTab>
   );
