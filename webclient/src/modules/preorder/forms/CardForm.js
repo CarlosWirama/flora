@@ -2,6 +2,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { Common, Form } from 'constants/displayTexts';
+
 export default class CardForm extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +26,7 @@ export default class CardForm extends React.Component {
     return (
       <form onSubmit={this._onSubmit}>
         <div className="row container">
-          <h5>Card</h5>
+          <h5>{Common.CARD}</h5>
 
           <div className="input-field col s12">
             <textarea name="cardContent" className="materialize-textarea"
@@ -32,7 +34,7 @@ export default class CardForm extends React.Component {
           </div>
           <div className="col s12" style={{marginTop: 10}}>
             <Link to={"/form/delivery"} className="btn btn-large red fullwidth waves-effect waves-light" >
-              {this.state.cardContent ? `wrap it!` : `I'll decide later`}
+              {this.state.cardContent ? Form.WRAP_IT : Form.ILL_DECIDE_LATER}
             </Link>
           </div>
         </div>

@@ -16,7 +16,11 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    modules: [
+      path.resolve('./webclient/src'),
+      path.resolve('./node_modules')
+    ]
   },
   module: {
     rules: [{

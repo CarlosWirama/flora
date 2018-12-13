@@ -1,16 +1,19 @@
 'use strict';
 
 import React from "react";
-import { Link } from "react-router-dom";
 import { observable, action, computed } from "mobx";
 import { observer } from "mobx-react";
-import BottomNav from '../../components/pageFrame/BottomNav';
-import ProductCard from '../../components/ProductCard';
-import SearchModal, { SearchModalTrigger } from '../../modules/product/searchModal';
-import { getProducts } from '../../modules/product/productController';
-import SearchHeader from "../../modules/product/SearchHeader";
 import { CSSTransition } from 'react-transition-group';
-import PageHeader from '../../components/pageFrame/PageHeader';
+
+import BottomNav from 'components/pageFrame/BottomNav';
+import ProductCard from 'components/ProductCard';
+import SearchModal, { SearchModalTrigger } from 'modules/product/searchModal';
+import { getProducts } from 'modules/product/productController';
+import SearchHeader from "modules/product/SearchHeader";
+
+import PageHeader from 'components/pageFrame/PageHeader';
+
+import { Common } from 'constants/displayTexts';
 
 // const path = '/webclient/src/pages/Home';
 
