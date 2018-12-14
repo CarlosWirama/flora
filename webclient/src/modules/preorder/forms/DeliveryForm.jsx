@@ -94,6 +94,11 @@ class DeliveryForm extends React.Component {
             <div className="input-field inline" style={{width:"auto"}}>
               <input id="instruction-other" name="instruction-other" type="text"/>
             </div>
+
+
+            <input type="checkbox" className="filled-in" id="prepaid-delivery"/>
+            <label htmlFor="prepaid-delivery" style={{fontSize: '.9rem !important', lineHeight: 1.7}}>Bayar beserta ongkir (tarif gocar)</label>
+            
           </div>
       {/*<!-- 
           <div className="input-field col s12">
@@ -103,7 +108,7 @@ class DeliveryForm extends React.Component {
           </div> -->*/}
 
           <div className="col s12" style={{marginTop: 10}}>
-            <Link to={"/form/customer"} className="btn btn-large red fullwidth waves-effect waves-light" >
+            <Link to={'/form/customer'} className="btn btn-large red fullwidth waves-effect waves-light" >
               continue
             </Link>
           </div>

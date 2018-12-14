@@ -4,7 +4,7 @@ import { Switch, Route, withRouter } from "react-router-dom";
 import Header from './Header.js';
 import { CardForm, DeliveryForm, CustomerForm } from './forms';
 
-function PreOrder() {
+export default function PreOrder() {
   return (
     <div>
       <Header />
@@ -16,5 +16,3 @@ function PreOrder() {
     </div>
   );
 }
-
-export default withRouter(props => <PreOrder {...props}/>);

@@ -26,7 +26,7 @@ export default class CardForm extends React.Component {
     return (
       <form onSubmit={this._onSubmit}>
         <div className="row container">
-          <h5>{Common.CARD}</h5>
+          <h5>{Common.GREETING_CARD}</h5>
 
           <div className="input-field col s12">
             <textarea name="cardContent" className="materialize-textarea" autoFocus

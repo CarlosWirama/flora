@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from '../pages/Home/Home';
 import Product from '../pages/Product/Product';
 import PreOrder from '../modules/preorder';
+import ThankYou from '../modules/preorder/ThankYou';
 import AddProduct from '../modules/product/AddProduct';
 import SearchResults from '../modules/product/SearchResults';
 
@@ -20,6 +21,7 @@ class MainFrame extends React.Component {
           <Route path="/product/add" component={AddProduct} />
           <Route path="/product" component={Product} />
           <Route path="/search" component={SearchResults} />
+          <Route path="/form/thankyou" component={ThankYou} />
           <Route path="/form" component={PreOrder} />
           <Route component={NotFound}/>
         </Switch>

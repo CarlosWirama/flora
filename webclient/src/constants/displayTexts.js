@@ -1,5 +1,6 @@
 export const Common = {
   CARD: 'kartu',
+  GREETING_CARD: 'kartu ucapan',
   DELIVERY: 'pengiriman',
   CUSTOMER: 'pemesan',
   BOUQUET: 'buket',

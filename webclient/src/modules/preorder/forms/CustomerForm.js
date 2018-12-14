@@ -41,9 +41,16 @@ export default class CustomerForm extends React.Component {
             <label htmlFor="sender-email">Billing Email</label>
           </div>
 
-          <div className="col s12" style={{marginTop: 10}}>
+          {/* <div className="col s12" style={{marginTop: 10}}>
             <input type="submit" className="btn btn-large red fullwidth waves-effect waves-light" value="add to basket"/>
+          </div> */}
+
+          <div className="col s12" style={{marginTop: 10}}>
+            <Link to={'/form/thankyou'} className="btn btn-large red fullwidth waves-effect waves-light" >
+              Pesan
+            </Link>
           </div>
+
         </div>
       </form>
     );
