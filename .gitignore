@@ -4,5 +4,5 @@ npm-debug.log
 server/public/*
 
 firebase-debug.log
-
+.firebase/hosting..cache
 dist/bundle.js
