@@ -1,8 +1,10 @@
 node_modules
 npm-debug.log
 .DS_Store
+.firebase
+
 server/public/*
 
 firebase-debug.log
-.firebase/hosting..cache
+
 dist/bundle.js
