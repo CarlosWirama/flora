@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // import Lightbox from 'react-image-lightbox';
 // import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 import { number } from 'services/formatter';
-import { Common } from 'constants/displayTexts';
+import { CommonWords } from 'constants/displayTexts';
 
 export default class ProductCard extends React.Component {
   constructor (props) {
@@ -45,7 +45,7 @@ export default class ProductCard extends React.Component {
             <h5>{name}</h5><span>{priceStr}</span>
           </div>
           <Link to="/form/card" className="waves-effect waves-light btn brown" style={{ width:'100%', marginTop:13}}>
-            {Common.BOOK}
+            {CommonWords.BOOK}
           </Link>
         </div>
 

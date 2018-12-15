@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Common, Form } from 'constants/displayTexts';
+import { CommonWords, FormWords } from 'constants/displayTexts';
 
 export default class CardForm extends React.Component {
   constructor(props) {
@@ -26,15 +26,16 @@ export default class CardForm extends React.Component {
     return (
       <form onSubmit={this._onSubmit}>
         <div className="row container">
-          <h5>{Common.GREETING_CARD}</h5>
+          <h5>{CommonWords.GREETING_CARD}</h5>
 
           <div className="input-field col s12">
             <textarea name="cardContent" className="materialize-textarea" autoFocus
-            value={this.state.cardContent} onChange={this._onInputChange} />
+              value={this.state.cardContent} onChange={this._onInputChange}>
+            </textarea>
           </div>
           <div className="col s12" style={{marginTop: 10}}>
             <Link to={"/form/delivery"} className="btn btn-large red fullwidth waves-effect waves-light" >
-              {this.state.cardContent ? Form.SEND : Form.SKIP}
+              {this.state.cardContent ? FormWords.SEND : FormWords.SKIP}
             </Link>
           </div>
         </div>

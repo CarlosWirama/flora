@@ -1,9 +1,12 @@
 'use strict';
-
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 // import { LogoText } from './PageHeader.styled';
 // import styled from 'styled-components';
+// import ReactSVG from 'react-svg'
+// import handbag from 'components/pageFrame/handbag.svg';
+import { CommonWords } from 'constants/displayTexts';
+
 function PageHeaderLayout({location, history, opacity}) {
   const backgroundColor = `rgba(255, 2555, 2555, ${opacity})`;
   return (
@@ -20,15 +23,11 @@ function PageHeaderLayout({location, history, opacity}) {
               </a>
             }
             <Link to="/">
-              <h5 className="brand-logo">Buké</h5>
+              <h5 className="brand-logo">{CommonWords.BRAND_NAME}</h5>
             </Link>
-            {/* <a href="#!/basket" className="right" style={{position:"relative"}}>
-              <img id="basket" className="icon" src="images/handbag.svg" />
-              <span>0</span>
-            </a> */}
-            {/*<!-- //nav menu for desktop -->
-            <!-- <ul className="right hide-on-med-and-down">
-            </ul> -->*/}
+            <a href="http://bit.ly/2vVgh1K" className="right" style={{position:"relative"}}>
+              <i className="large material-icons">chat</i>
+            </a>
           </div>
         </nav>
       </div>

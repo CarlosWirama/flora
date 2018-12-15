@@ -13,7 +13,7 @@ import SearchHeader from "modules/product/SearchHeader";
 
 import PageHeader from 'components/pageFrame/PageHeader';
 
-import { Common } from 'constants/displayTexts';
+import { HomePageWords } from 'constants/displayTexts';
 
 // const path = '/webclient/src/pages/Home';
 
@@ -80,10 +80,9 @@ export default class Home extends React.Component {
         <div className="container">
           {/*<!--  MAIN BANNER -->*/}
           <RecommendedList products={this.products} isLoading={this.isLoading} />
-          <ProductList products={this.products} isLoading={this.isLoading} />
           <Category/>
-          <div className='back-to-top' onClick={ e =>scrollTo('#sementara', e) }>
-            back to top
+          <div className='back-to-top' onClick={ e =>scrollTo('body', e) }>
+            {HomePageWords.BACK_TO_TOP}
           </div>
           {/*<div className="hide-on-large-only">
             <BottomNav />
@@ -94,27 +93,12 @@ export default class Home extends React.Component {
   }
 }
 
-const ProductList = ({products, isLoading}) =>
-  <div className="row">
-    <div className="col s12 section">
-      <h5>Graduation</h5>
-      <hr/>
-    </div>
-    { isLoading ? <h6 className="center-align">Loading...</h6> :
-      products.map( (product, i) =>
-      <div className="col s6" key={i}>
-        <ProductCard name={product.name} img={product.img} url={product.url}
-          price={product.price} description={product.description} />
-      </div>
-    ) }
-  </div>
-
 const RecommendedList = ({products, isLoading}) =>
   <div id="recommended" className="row">
-    <div className="col s12 section">
+    {/* <div className="col s12 section">
       <h5>Recommended Buké</h5>
       <hr/>
-    </div>
+    </div> */}
     { isLoading ? <h6 className="center-align">Loading...</h6> :
       products.map( (product, i) =>
       <div className="col s12" key={i}>
@@ -129,27 +113,27 @@ const Category = () =>
 
     <div className='home-category col s6'>
       <img className='img img-romantic' />
-      <span>romantic</span>
+      <span>{HomePageWords.ROMANTIC}</span>
     </div>
     <div className='home-category col s6'>
       <img className='img img-graduation' />
-      <span>graduation</span>
+      <span>{HomePageWords.GRADUATION}</span>
     </div>
     <div className='home-category col s6'>
       <img className='img img-wedding' />
-      <span>wedding</span>
+      <span>{HomePageWords.WEDDING}</span>
     </div>
     <div className='home-category col s6'>
       <img className='img img-decor' />
-      <span>decoration</span>
+      <span>{HomePageWords.DECORATION}</span>
     </div>
     <div className='home-category col s6'>
       <img className='img img-any-occasion' />
-      <span>any occasion</span>
+      <span>{HomePageWords.ANY_OCCASION}</span>
     </div>
     <div className='home-category col s6'>
       <img className='img img-budget' />
-      <span>budget</span>
+      <span>{HomePageWords.BUDGET}</span>
     </div>
 
   </div>
@@ -160,7 +144,7 @@ const Banner = () =>
     <div className="shader" />
       <div id="sementara" className="container">
       <h4 style={{position:'absolute', color:'white', top: 300, width:'50vw'}}>
-        Make her<br/>special day<br/>beautiful
+        {HomePageWords.WELCOME}
       </h4><br/>
       {/*
       <h5>insta-story sized banner</h5><br/>

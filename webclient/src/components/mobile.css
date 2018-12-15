@@ -146,9 +146,10 @@ a {
   margin-bottom: 20;
 }
 .welcome-banner > img {
-  background-image: url(https://scontent-sin6-1.cdninstagram.com/vp/312f9da00415d2dc14ee22bb92aef6a3/5B5C3852/t51.2885-15/e35/28763906_414755895638730_8330088108519325696_n.jpg);
+  top: 0;
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/banner.jpg?alt=media&token=10a5b171-6887-4053-88cc-4ae36ee3cfab);
   background-size: cover;
-  background-position: -110px;
+  background-position: -150px;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -533,32 +534,28 @@ img.img-romantic {
   /*background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/bd02d6b0db0eac916a12bef87f8d8d9a/5B3B8A65/t51.2885-15/s640x640/sh0.08/e35/26865879_200824560496652_6082032582898221056_n.jpg);
   background-size: 120%;
   background-position: -20 -24;*/
-  background-image: url(https://instagram.fcgk13-1.fna.fbcdn.net/vp/597a6668b6d84a1e084fc4b607b9b1e3/5B54B052/t51.2885-15/e35/29094416_183309499142160_3906555248595959808_n.jpg);
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/romantic.jpg?alt=media&token=9ee2fa76-5313-4191-92c6-d5a1213d7159);
 }
 img.img-graduation {
-  background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/87e9fbd845554738508db41356fdff7c/5B351A37/t51.2885-15/e35/13397653_735340299902715_1356368638_n.jpg);
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/graduation.jpg?alt=media&token=837a933b-3529-4837-acdd-c5d8320a6419);
   background-size: cover;
   background-position: -35 0;
 }
 img.img-wedding {
-  background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/02d1a2f6c631225eccaa10cd1759c2eb/5B36F33C/t51.2885-15/s640x640/sh0.08/e35/29403124_1561000504016375_4672128844075892736_n.jpg);
-  background-size: 150%;
-  background-position: -40 0;
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/wedding.jpg?alt=media&token=e1b00a8e-7ad5-451b-827b-e3025efae6a8);
+  background-size: 110%;
+  background-position: 0 -13;
 }
 img.img-decor {
-  background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/0b5348971616659930208c801802e46f/5B5A6604/t51.2885-15/s640x640/sh0.08/e35/29403433_612707559072230_6762179983235350528_n.jpg);
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/decor.jpg?alt=media&token=9aa98610-bfea-4ed2-a228-d2060e9b5e76);
 }
 img.img-any-occasion {
-  /*background-image: url(http://h7.alamy.com/comp/F0HKX1/happy-birthday-message-card-with-gift-box-and-pink-roses-F0HKX1.jpg);
-  background-size: cover;
-  background-size: 160%;
-  background-position: -73 0px;*/
-  background-image: url(https://instagram.fcgk13-1.fna.fbcdn.net/vp/9ad34a4c4a36d574db3eded4757c587f/5B7353E0/t51.2885-15/e35/25011859_141553429838166_5364904496235282432_n.jpg);
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/anyoccasion.jpg?alt=media&token=cf559a57-f703-49da-ae97-859cc4205879);
   background-size: 108%;
   background-position-x: center;
 }
 img.img-budget {
-  background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/370c430702d759500fe43555e79d6888/5B59D238/t51.2885-15/s640x640/sh0.08/e35/24332420_1902362553410590_4122114318537850880_n.jpg);
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/budget.jpg?alt=media&token=ebb0ac4c-5b35-42a2-8ac0-6cb56986fe4b);
 }
 
 input.search-input {
