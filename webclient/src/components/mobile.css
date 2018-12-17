@@ -669,7 +669,12 @@ nav i.icon-btn {
   transition: all 300ms ease-out;
 }
 
-main, #search-header,
+body {
+  background-image: url(http://cdn.backgroundhost.com/backgrounds/subtlepatterns/white_sand.png);
+  z-index: -2;
+}
+
+main, nav, .navbar-fixed, #search-header,
 .welcome-banner > img,
 .welcome-banner .shader,
 .wide-cta-btn {

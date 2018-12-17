@@ -1,3 +1,5 @@
+import React from 'react'; // temporary, while we still having JSX in WELCOME const
+
 export const CommonWords = {
   BRAND_NAME: 'Buké',
   CARD: 'kartu',
@@ -9,7 +11,7 @@ export const CommonWords = {
 };
 
 export const HomePageWords = {
-  WELCOME: 'Jadikan momen berharganya lebih indah',
+  WELCOME: <span>Jadikan momen<br/>berharganya<br/>lebih indah</span>,
   ROMANTIC: 'romantis',
   GRADUATION: 'wisuda',
   WEDDING: 'wedding',

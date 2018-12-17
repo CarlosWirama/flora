@@ -1,7 +1,7 @@
 'use strict';
 
 import React from "react";
-import { observable, action, computed } from "mobx";
+import { observable, action } from "mobx";
 import { observer } from "mobx-react";
 import { CSSTransition } from 'react-transition-group';
 
@@ -75,7 +75,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <main>
-        <PageHeader opacity={this.state.headerOpacity} {...this.props}></PageHeader>
+        <PageHeader opacity={this.state.headerOpacity} {...this.props} />
         <Banner/>
         <div className="container">
           {/*<!--  MAIN BANNER -->*/}
@@ -143,7 +143,7 @@ const Banner = () =>
     <img className=""/>
     <div className="shader" />
       <div id="sementara" className="container">
-      <h4 style={{position:'absolute', color:'white', top: 300, width:'50vw'}}>
+      <h4 style={{position:'absolute', color:'white', top: 300, width:'62vw'}}>
         {HomePageWords.WELCOME}
       </h4><br/>
       {/*
