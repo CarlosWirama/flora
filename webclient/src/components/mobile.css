@@ -66,9 +66,6 @@ header nav a span {
   position: absolute;
   right: 8px;
   top: 5px;
-/* if shopping_basket is using material-icon
-  left: 8px;
-  top: 5px;*/
 }
 
 nav .page-title {
@@ -125,11 +122,6 @@ a {
   z-index: 996;
 }
 
-/*button.cta-button {
-  position: fixed;
-  bottom: 0;
-}*/
-
 
 .col.s2point4 {
   width: 20%;
@@ -137,8 +129,6 @@ a {
 
 .welcome-banner {
   /*background-color: lightgreen;*/
-  
-
   height: 100%;
   /*height: calc( 100% - 53px - 56px );*/
   /*height: calc( 100% - 53px );*/
@@ -169,7 +159,6 @@ a {
 .card {
   /*position: relative;*//* for floating buttons in card*/
   padding: .8rem !important;
-  /*background-color: #ffd;*/
 }
 
 .card h5 {

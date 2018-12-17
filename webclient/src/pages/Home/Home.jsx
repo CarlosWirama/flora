@@ -69,7 +69,6 @@ export default class Home extends React.Component {
   //     .then( r => this.products = r )
   //     .catch( e => alert(e) )
   //     .finally( () => this.isLoading = false );
-  
   // }
 
   render() {
