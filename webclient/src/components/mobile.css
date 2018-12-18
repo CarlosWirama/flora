@@ -127,33 +127,6 @@ a {
   width: 20%;
 }
 
-.welcome-banner {
-  /*background-color: lightgreen;*/
-  height: 100%;
-  /*height: calc( 100% - 53px - 56px );*/
-  /*height: calc( 100% - 53px );*/
-  overflow: hidden;
-  margin-bottom: 20;
-}
-.welcome-banner > img {
-  top: 0;
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/banner.jpg?alt=media&token=10a5b171-6887-4053-88cc-4ae36ee3cfab);
-  background-size: cover;
-  background-position: -150px;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  position: absolute;
-}
-.welcome-banner > .shader {
-  background-color: black;
-  opacity: .4;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-}
-
 /*product-card*/
 
 .card {
@@ -320,136 +293,6 @@ a {
 }
 
 
-/* noUiSlider - Materialize Styles */
-
-.noUi-target{
-  background: #cdcdcd;
-  border: 1px solid transparent;
-}
-.noUi-handle {
-  box-shadow: inset 0 0 1px #FFF,
-  inset 0 1px 7px #EBEBEB,
-  0 3px 6px -3px #BBB;
-}
-
-.noUi-active {
-  box-shadow: inset 0 0 1px #FFF,
-  inset 0 1px 7px #DDD,
-  0 3px 6px -3px #BBB;
-}
-
-.noUi-tooltip{
-  border: 1px solid transparent;
-}
-
-
-
-
-.noUi-target {
-  border: 0;
-  border-radius: 0;
-}
-.noUi-horizontal {
-  height: 3px;
-}
-.noUi-vertical {
-  height: 100%;
-  width: 3px;
-}
-.noUi-horizontal .noUi-handle,
-.noUi-vertical .noUi-handle {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  box-shadow: none;
-  background-color: #26A69A;
-  border: none;
-  left: -5px;
-  top: -6px;
-  transition: width .2s cubic-bezier(0.215, 0.610, 0.355, 1.000),
-  height .2s cubic-bezier(0.215, 0.610, 0.355, 1.000),
-  left .2s cubic-bezier(0.215, 0.610, 0.355, 1.000),
-  top .2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-}
-.noUi-handle:before {
-  content: none;
-}
-.noUi-handle:after {
-  content: none;
-}
-.noUi-target .noUi-active.noUi-handle {
-  width: 3px;
-  height: 3px;
-  left: 0;
-  top: 0;
-}
-.noUi-target.noUi-horizontal .noUi-tooltip {
-  position: absolute;
-  height: 30px;
-  width: 30px;
-  top: -17px;
-  left: -2px;
-  background-color: #26A69A;
-  border-radius: 50%;
-  transition: border-radius .25s cubic-bezier(0.215, 0.610, 0.355, 1.000),
-  transform .25s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-  transform: scale(.5) rotate(-45deg);
-  transform-origin: 50% 100%;
-}
-.noUi-target.noUi-horizontal .noUi-active .noUi-tooltip {
-  border-radius: 15px 15px 15px 0;
-  transform: rotate(-45deg) translate(23px, -25px);
-}
-.noUi-tooltip span {
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-size: 12px;
-  opacity: 0;
-  position: absolute;
-  top: 6px;
-  left: -1px;
-  transition: opacity .25s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-}
-.noUi-horizontal .noUi-tooltip span {
-  transform: rotate(45deg);
-}
-.noUi-vertical .noUi-tooltip span {
-  transform: rotate(135deg);
-}
-.noUi-target.noUi-vertical .noUi-tooltip {
-  position: absolute;
-  height: 30px;
-  width: 30px;
-  top: -17px;
-  left: -2px;
-  background-color: #26A69A;
-  border-radius: 50%;
-  transition: border-radius .25s cubic-bezier(0.215, 0.610, 0.355, 1.000),
-  transform .25s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-  transform: scale(.5) rotate(-45deg);
-  transform-origin: 50% 100%;
-}
-.noUi-target.noUi-vertical .noUi-active .noUi-tooltip {
-  border-radius: 15px 15px 15px 0;
-  transform: rotate(-135deg) translate(35px, -10px);
-}
-.noUi-vertical .noUi-tooltip span {
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-size: 12px;
-  transform: rotate(135deg);
-  opacity: 0;
-  position: absolute;
-  top: 7px;
-  left: -1px;
-  transition: opacity .25s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-}
-.noUi-horizontal .noUi-active .noUi-tooltip span,
-.noUi-vertical .noUi-active .noUi-tooltip span {
-  opacity: 1;
-}
 
 /* COMMA-SEPARATED INPUT WORK-AROUND*/
 div[comma-value]{
@@ -462,89 +305,6 @@ div[comma-value]:before{
 }
 div[comma-value] input{
   color: transparent;
-}
-
-#category {
-  padding-top: 10;
-}
-
-.home-category {
-  position: relative;
-  margin-bottom: 20;
-}
-
-.home-category span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 20pt;
-  text-align: center;
-
-  text-shadow: 2px 1.5px black;
-}
-
-.home-category img {
-  background-blend-mode: color-burn;
-}
-
-.home-category:hover span {
-  font-size: 25pt;
-/* outline text: */
-/*  text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;*/
-
-}
-.home-category:hover img {
-  background-blend-mode: unset;
-}
-
-@media only screen and (max-width: 600px) {
-  .home-category span {
-    font-size: 15pt;
-  }
-  .home-category:hover span {
-    font-size: 19pt;
-  }
-}
-
-img.img {
-  background-size: contain;
-  background-color: #ccc;
-  width: 100%;
-  padding-top: 100%;
-}
-
-img.img-romantic {
-  /*background-image: url(https://scontent-sin6-2.cdninstagram.com/vp/bd02d6b0db0eac916a12bef87f8d8d9a/5B3B8A65/t51.2885-15/s640x640/sh0.08/e35/26865879_200824560496652_6082032582898221056_n.jpg);
-  background-size: 120%;
-  background-position: -20 -24;*/
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/romantic.jpg?alt=media&token=9ee2fa76-5313-4191-92c6-d5a1213d7159);
-}
-img.img-graduation {
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/graduation.jpg?alt=media&token=837a933b-3529-4837-acdd-c5d8320a6419);
-  background-size: cover;
-  background-position: -35 0;
-}
-img.img-wedding {
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/wedding.jpg?alt=media&token=e1b00a8e-7ad5-451b-827b-e3025efae6a8);
-  background-size: 110%;
-  background-position: 0 -13;
-}
-img.img-decor {
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/decor.jpg?alt=media&token=9aa98610-bfea-4ed2-a228-d2060e9b5e76);
-}
-img.img-any-occasion {
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/anyoccasion.jpg?alt=media&token=cf559a57-f703-49da-ae97-859cc4205879);
-  background-size: 108%;
-  background-position-x: center;
-}
-img.img-budget {
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/budget.jpg?alt=media&token=ebb0ac4c-5b35-42a2-8ac0-6cb56986fe4b);
 }
 
 input.search-input {
@@ -606,12 +366,6 @@ nav i.icon-btn {
   align-items: center;
 }*/
 
-.back-to-top {
-  text-align: center;
-  background: lightgray;
-  color: gray;
-}
-
 .add-to-cart-container {
   float: right;
   position: relative;
@@ -664,8 +418,6 @@ body {
 }
 
 main, nav, .navbar-fixed, #search-header,
-.welcome-banner > img,
-.welcome-banner .shader,
 .wide-cta-btn {
   max-width: 30rem;
   margin: 0 auto;

@@ -58,10 +58,6 @@ class DeliveryForm extends React.Component {
             <input type="time" name="deliveryHour" id="deliveryHour"/>
           </div>
 
-          <div className="col s12">
-            <input type="checkbox" className="filled-in" id="prepaid-delivery"/>
-            <label htmlFor="prepaid-delivery" style={{fontSize: '.9rem !important', lineHeight: 1.7}}>{FormWords.INCLUDE_SHIPPING_FEE}</label>
-          </div>
           <div className="input-field col s12">
             <textarea id="instruction" name="instruction" className="materialize-textarea" style={{marginBottom: 0}}></textarea>
             <label htmlFor="instruction">{FormWords.DELIVERY_INSTRUCTION}</label>

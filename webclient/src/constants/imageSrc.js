@@ -1,0 +1,1 @@
+export const welcome_banner_src = `https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/banner.jpg?alt=media&token=10a5b171-6887-4053-88cc-4ae36ee3cfab`;

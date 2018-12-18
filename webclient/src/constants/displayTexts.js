@@ -1,3 +1,8 @@
+/**
+ * Will support multiple language in the future
+ * currently set to Indonesian
+**/
+
 import React from 'react'; // temporary, while we still having JSX in WELCOME const
 
 export const CommonWords = {
@@ -28,7 +33,6 @@ export const FormWords = {
   RECIPIENT_PHONE: 'No Telp Penerima',
   DELIVERY_DATE: 'Tanggal Pengiriman',
   DELIVERY_TIME: 'Waktu Tiba',
-  INCLUDE_SHIPPING_FEE: 'bayar beserta ongkir (tarif Go-Car)',
   DELIVERY_INSTRUCTION: 'Keterangan Tambahan',
   WE_WILL_TRY_OUR_BEST: 'Kami akan berusaha memenuhi permintaan Anda sebisa kami tanpa menjanjikan apapun',
   PROCEED: 'lanjutkan',

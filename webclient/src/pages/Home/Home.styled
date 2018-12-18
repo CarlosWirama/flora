@@ -1,0 +1,113 @@
+import styled from 'styled-components';
+import { welcome_banner_src } from 'constants/imageSrc';
+
+export const Category = styled.div`
+  position: relative;
+  margin-bottom: 20;
+  padding-top: 10;
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+    text-shadow: 2px 1.5px black;
+  }
+  img {
+    background-blend-mode: color-burn;
+    background-size: contain;
+    background-color: #ccc;
+    width: 100%;
+    padding-top: 100%;
+  }
+  &:hover span {
+    font-size: 25pt;
+    text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+  }
+  &:hover img {
+    background-blend-mode: unset;
+  }
+
+  @media(max-width: 600px) {
+    span {
+      font-size: 15pt;
+    }
+    &:hover span {
+      font-size: 19pt;
+    }
+  }
+  .ROMANTIC {
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/romantic.jpg?alt=media&token=9ee2fa76-5313-4191-92c6-d5a1213d7159);
+  }
+  .GRADUATION {
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/graduation.jpg?alt=media&token=837a933b-3529-4837-acdd-c5d8320a6419);
+    background-size: cover;
+    background-position: -35 0;
+  }
+  .WEDDING {
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/wedding.jpg?alt=media&token=e1b00a8e-7ad5-451b-827b-e3025efae6a8);
+    background-size: 110%;
+    background-position: 0 -13;
+  }
+  .DECORATION {
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/decor.jpg?alt=media&token=9aa98610-bfea-4ed2-a228-d2060e9b5e76);
+  }
+  .ANY_OCCASION {
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/anyoccasion.jpg?alt=media&token=cf559a57-f703-49da-ae97-859cc4205879);
+    background-size: 108%;
+    background-position-x: center;
+  }
+  .BUDGET {
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/flora-247.appspot.com/o/budget.jpg?alt=media&token=ebb0ac4c-5b35-42a2-8ac0-6cb56986fe4b);
+  }
+`;
+
+export const WelcomeBanner = styled.div`
+  height: 100%;
+  overflow: hidden;
+  margin-bottom: 20;
+  img {
+    top: 0;
+    background-image: url(${welcome_banner_src});
+    background-size: cover;
+    background-position: -150px;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: absolute;
+
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+`;
+
+export const Shader = styled.div`
+  background-color: black;
+  opacity: .4;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+
+  max-width: 30rem;
+  margin: 0 auto;
+`;
+
+export const WelcomeText = styled.h4`
+  position: absolute;
+  color: white;
+  top: 300;
+  width: 62vw;
+`;
+
+export const BackToTop = styled.div`
+  text-align: center;
+  background: lightgray;
+  color: gray;
+`;
