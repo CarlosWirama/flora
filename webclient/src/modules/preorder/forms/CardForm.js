@@ -2,13 +2,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { CommonWords, FormWords } from 'constants/displayTexts';
+import { CardFormWords } from 'constants/displayTexts';
 
 export default class CardForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       cardContent: '',
+      dontUseCard: '',
+      requestBlankCard: '',
     };
   }
 
@@ -22,20 +24,54 @@ export default class CardForm extends React.Component {
     e.preventDefault();
   }
 
+  _onRadioCheckboxChanged = e => {
+    if (e.target.name == 'dontUseCard')
+      this.setState({ requestBlankCard: false });
+    else if (e.target.name == 'requestBlankCard')
+      this.setState({ dontUseCard: false });
+    this._onInputChange(e);
+  }
+
+  _cardAreaClicked = () => {
+    this.refs.cardContent.disabled = false;
+    this.refs.cardContent.focus();
+    this.setState({
+      dontUseCard: false,
+      requestBlankCard: false,
+    });
+  }
+
   render () {
     return (
       <form onSubmit={this._onSubmit}>
         <div className="row container">
-          <h5>{CommonWords.GREETING_CARD}</h5>
+          <h5>{CardFormWords.GREETING_CARD}</h5>
 
           <div className="input-field col s12">
-            <textarea name="cardContent" className="materialize-textarea" autoFocus
-              value={this.state.cardContent} onChange={this._onInputChange}>
+            <input id="dontUseCard" name="dontUseCard" type="checkbox"
+              onChange={this._onRadioCheckboxChanged}
+              checked={this.state.dontUseCard} class="filled-in" />
+            <label htmlFor="dontUseCard">{CardFormWords.DONT_USE_CARD}</label>
+          </div>
+
+          <div className="input-field col s12">
+            <input id="requestBlankCard" name="requestBlankCard" type="checkbox"
+              onChange={this._onRadioCheckboxChanged}
+              checked={this.state.requestBlankCard} class="filled-in" />
+            <label htmlFor="requestBlankCard">{CardFormWords.REQUEST_BLANK_CARD}</label>
+          </div>
+
+          <div className="input-field col s12" onClick={this._cardAreaClicked}>
+            <textarea name="cardContent" className="materialize-textarea"
+              value={this.state.cardContent} onChange={this._onInputChange}
+              disabled={this.state.dontUseCard || this.state.requestBlankCard}
+              ref="cardContent">
             </textarea>
           </div>
+
           <div className="col s12" style={{marginTop: 10}}>
             <Link to={"/form/delivery"} className="btn btn-large red fullwidth waves-effect waves-light" >
-              {this.state.cardContent ? FormWords.SEND : FormWords.SKIP}
+              {CardFormWords.NEXT}
             </Link>
           </div>
         </div>

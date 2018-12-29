@@ -81,6 +81,7 @@ export default class Home extends React.Component {
       'ANY_OCCASION',
       'BUDGET',
     ];
+    // 'BIRTHDAY', 'MOTHERS_DAY', 'FOR_BOYS', 'FOR GIRLS', 'CHRISTMAS'
     return (
       <main>
         <PageHeader opacity={this.state.headerOpacity} {...this.props} />
