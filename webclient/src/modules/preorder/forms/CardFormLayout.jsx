@@ -1,9 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { CardFormWords } from 'constants/displayTexts';
 
-export default function CardForm({
-  onSubmit, onRadioCheckboxChanged, inputState, cardAreaClicked, onInputChange,
+export default function CardFormLayout({
+  inputState,
+  onInputChange,
+  onSubmit,
+  onRadioCheckboxChanged,
+  cardAreaClicked,
+  refCardContent,
 }) {
   return (
     <form onSubmit={onSubmit}>
@@ -13,31 +18,40 @@ export default function CardForm({
         <div className="input-field col s12">
           <input id="dontUseCard" name="dontUseCard" type="checkbox"
             onChange={onRadioCheckboxChanged}
-            checked={inputState.dontUseCard} class="filled-in" />
+            checked={inputState.dontUseCard} className="filled-in" />
           <label htmlFor="dontUseCard">{CardFormWords.DONT_USE_CARD}</label>
         </div>
 
         <div className="input-field col s12">
           <input id="requestBlankCard" name="requestBlankCard" type="checkbox"
             onChange={onRadioCheckboxChanged}
-            checked={inputState.requestBlankCard} class="filled-in" />
+            checked={inputState.requestBlankCard} className="filled-in" />
           <label htmlFor="requestBlankCard">{CardFormWords.REQUEST_BLANK_CARD}</label>
         </div>
 
         <div className="input-field col s12" onClick={cardAreaClicked}>
           <textarea name="cardContent" className="materialize-textarea"
-            value={inputState.cardContent} onChange={onInputChange}
+            onChange={onInputChange}
             disabled={inputState.dontUseCard || inputState.requestBlankCard}
-            ref="cardContent">
-          </textarea>
+            ref={refCardContent} />
         </div>
 
-        <div className="col s12" style={{marginTop: 10}}>
-          <Link to={"/form/delivery"} className="btn btn-large red fullwidth waves-effect waves-light" >
-            {CardFormWords.NEXT}
-          </Link>
-        </div>
+        <SubmitButtonContainer className="col s12">
+          <input type="submit"
+            className="btn btn-large red fullwidth waves-effect waves-light"
+            value={CardFormWords.NEXT}
+          />
+        </SubmitButtonContainer>
       </div>
     </form>
   );
 }
+
+const SubmitButtonContainer = styled.div`
+  margin-top: 20;
+  i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;

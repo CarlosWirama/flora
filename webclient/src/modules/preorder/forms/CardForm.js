@@ -1,4 +1,5 @@
 import React from "react";
+import CardFormLayout from './CardFormLayout.jsx';
 
 export default class CardForm extends React.Component {
   constructor(props) {
@@ -11,13 +12,14 @@ export default class CardForm extends React.Component {
   }
 
   _onInputChange = e => {
-    const {name, type, checked, value } = e.target;
+    const { name, type, checked, value } = e.target;
     const newValue = type === 'checkbox' ? checked : value;
     this.setState({[name]: newValue});
   }
 
   _onSubmit = e => {
     e.preventDefault();
+    this.props.history.push('/form/delivery');
   }
 
   _onRadioCheckboxChanged = e => {
@@ -29,13 +31,15 @@ export default class CardForm extends React.Component {
   }
 
   _cardAreaClicked = () => {
-    this.refs.cardContent.disabled = false;
-    this.refs.cardContent.focus();
+    this.cardContentTextarea.disabled = false;
+    this.cardContentTextarea.focus();
     this.setState({
       dontUseCard: false,
       requestBlankCard: false,
     });
   }
+
+  _refCardContent = ref => this.cardContentTextarea = ref
 
   render () {
     return (
@@ -45,6 +49,7 @@ export default class CardForm extends React.Component {
         onSubmit={this._onSubmit}
         onRadioCheckboxChanged={this._onRadioCheckboxChanged}
         cardAreaClicked={this._cardAreaClicked}
+        refCardContent={this._refCardContent}
       />
     );
   }
