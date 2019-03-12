@@ -1,7 +1,9 @@
 import React from "react";
+import { connect } from 'react-redux'
+// import { increment, decrement, reset } from './actionCreators'
 import CardFormLayout from './CardFormLayout.jsx';
 
-export default class CardForm extends React.Component {
+class CardForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,3 +56,30 @@ export default class CardForm extends React.Component {
     );
   }
 }
+
+const CHANGE_TEXT_INPUT = 'CHANGE_TEXT_INPUT';
+
+const changeTextInput = e => {
+  const { name, type, checked, value } = e.target;
+  // let value = type === 'checkbox' ? checked : e.target.value;
+  // this.setState({[name]: value});
+  return {
+    type: CHANGE_TEXT_INPUT,
+    payload: { name, type, checked, value },
+  };
+}
+
+function mapStateToProps(state /*, ownProps*/) {
+  return {
+    cardContent: state.cardContent,
+  }
+}
+// bkin reducer
+// perlu bkin terpisah tiap input ga?
+
+const mapDispatchToProps = { changeTextInput };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CardForm);
